@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: "koty"
+    label: "Koty"
+    folder: "content/koty"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Imię", name: "name", widget: "string" }
+      - {
+          label: "Płeć",
+          name: "gender",
+          widget: "select",
+          options: ["Kocur", "Kotka"],
+        }
+      - { label: "Data urodzenia", name: "birthdate", widget: "date" }
+      - { label: "Opis", name: "description", widget: "markdown" }
+      - { label: "Zdjęcie", name: "image", widget: "image" }
