@@ -1,7 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react()],
-})
+export default defineConfig(() => {
+  const plugins = [react()];
+
+  if (process.env.TEST_ENV === "true") {
+    plugins.push(
+      viteStaticCopy({
+        targets: [{ src: "content", dest: "" }],
+      })
+    );
+  }
+
+  return { plugins };
+});

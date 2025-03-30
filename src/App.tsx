@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+//import matter from "gray-matter";
+import Home from "./pages/Home";
+import News from "./pages/News";
+import Kittens from "./pages/Kittens";
+import Cats from "./pages/Cats";
+import BeforeYouBuy from "./pages/BeforeYouBuy";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // fetch("/content/koty/mruczek.md")
+  //   .then((response) => {
+  //     console.log(response);
+  //     return response.text();
+  //   })
+  //   .then((text) => {
+  //     const content = matter(text);
+  //     console.log(content);
+  //     console.log(content.data);
+  //   });
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/aktualnosci" element={<News />}></Route>
+        <Route path="/kocieta" element={<Kittens />}></Route>
+        <Route path="/koty" element={<Cats />}></Route>
+        <Route path="/zanim-kupisz" element={<BeforeYouBuy />}></Route>
+        <Route path="/o-nas" element={<About />}></Route>
+        <Route path="/kontakt" element={<Contact />}></Route>
+        <Route path="*" element={<PageNotFound />}></Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
