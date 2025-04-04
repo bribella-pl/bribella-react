@@ -1,11 +1,10 @@
-import Navigation from "../components/Navigation/Navigation";
+import Layout from "../components/Layout/Layout";
 
 function Kittens() {
   return (
-    <div>
-      <Navigation />
+    <Layout>
       <h1 className="text-3xl">Kocięta</h1>
-    </div>
+    </Layout>
   );
 }
 

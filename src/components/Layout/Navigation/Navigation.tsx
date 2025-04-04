@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Logo from "../Logo";
 import { Menu, X } from "lucide-react";
 import NavItem from "./NavItem";
+import Logo from "../Logo";
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);

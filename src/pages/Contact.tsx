@@ -1,11 +1,10 @@
-import Navigation from "../components/Navigation/Navigation";
+import Layout from "../components/Layout/Layout";
 
 function Contact() {
   return (
-    <div>
-      <Navigation />
+    <Layout>
       <h1 className="text-3xl">Kontakt</h1>
-    </div>
+    </Layout>
   );
 }
 
