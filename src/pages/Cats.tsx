@@ -1,10 +1,10 @@
-import Navigation from "../components/Navigation";
+import Navigation from "../components/Navigation/Navigation";
 
 function Cats() {
   return (
     <div>
       <Navigation />
-      <h1>Koty</h1>
+      <h1 className="text-3xl">Koty</h1>
     </div>
   );
 }

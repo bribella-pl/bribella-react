@@ -1,10 +1,10 @@
-import Navigation from "../components/Navigation";
+import Navigation from "../components/Navigation/Navigation";
 
 function About() {
   return (
     <div>
       <Navigation />
-      <h1>O nas</h1>
+      <h1 className="text-3xl">O nas</h1>
     </div>
   );
 }

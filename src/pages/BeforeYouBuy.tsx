@@ -1,10 +1,10 @@
-import Navigation from "../components/Navigation";
+import Navigation from "../components/Navigation/Navigation";
 
 function BeforeYouBuy() {
   return (
     <div>
       <Navigation />
-      <h1>Zanim kupisz</h1>
+      <h1 className="text-3xl">Zanim kupisz</h1>
     </div>
   );
 }
