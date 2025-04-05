@@ -1,18 +1,24 @@
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import { viteStaticCopy } from "vite-plugin-static-copy";
+import { plugin as markdownPlugin, Mode } from "vite-plugin-markdown";
+import path from "path";
 
 export default defineConfig(() => {
-  const plugins = [tailwindcss(), react()];
+  const plugins = [
+    tailwindcss(),
+    react(),
+    markdownPlugin({
+      mode: [Mode.MARKDOWN],
+    }),
+  ];
 
-  if (process.env.TEST_ENV === "true") {
-    plugins.push(
-      viteStaticCopy({
-        targets: [{ src: "content", dest: "" }],
-      })
-    );
-  }
-
-  return { plugins };
+  return {
+    plugins,
+    resolve: {
+      alias: {
+        "@content": path.resolve(__dirname, "content"),
+      },
+    },
+  };
 });

@@ -10,7 +10,9 @@ function Layout({ children }: LayoutProps) {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
-      <main className="flex-grow p-4">{children}</main>
+      <main className="bg-bribella-white flex-grow text-center">
+        {children}
+      </main>
       <Footer />
     </div>
   );

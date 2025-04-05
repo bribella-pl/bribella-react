@@ -6,6 +6,15 @@ media_folder: public/images
 public_folder: /images
 
 collections:
+  - name: "quotes"
+    label: "Cytaty"
+    folder: "content/quotes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Autor", name: "author", widget: "string" }
+      - { label: "Cytat", name: "quote", widget: "text" }
+
   - name: "koty"
     label: "Koty"
     folder: "content/koty"
