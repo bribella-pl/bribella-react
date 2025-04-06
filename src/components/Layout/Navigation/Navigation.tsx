@@ -7,7 +7,7 @@ function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="p-4 flex flex-nowrap items-center justify-between relative bg-bribella-white">
+    <nav className="p-4 flex flex-nowrap items-center justify-between relative bg-bribella-white shadow-lg shadow-gray-300/50 z-5">
       <Logo />
 
       <button className="xl:hidden" onClick={() => setIsOpen(!isOpen)}>

@@ -1,81 +1,75 @@
 import Layout from "../components/Layout/Layout";
 import RandomQuote from "../components/RandomQuote";
+import Section from "../components/Section";
+import ParallaxImage from "../components/ParallaxImage";
+import { NavLink } from "react-router-dom";
 
 function Home() {
   return (
     <Layout>
-      <section
-        className="relative h-[85vh] bg-cover bg-center flex flex-col justify-between"
-        style={{
-          backgroundImage: "url('/images/majestic.webp')",
-        }}
+      <ParallaxImage
+        imageUrl="/images/majestic.webp"
+        alt="Majestatyczny kot brytyjski"
+        title="Witamy w&nbsp;Bribella*PL"
       >
         <RandomQuote />
+      </ParallaxImage>
 
-        <div className="bg-bribella-blue w-full text-bribella-orange text-center">
-          <h1 className="text-lg lg:text-2xl m-4  tracking-wide">
-            Witamy w Bribella*PL
-          </h1>
-        </div>
-      </section>
-
-      {/* Opis hodowli */}
-      <section className=" max-w-5xl mx-auto my-16 px-4 text-bribella-black flex">
-        <div>
-          <h2 className="text-3xl font-semibold mb-4">
-            Nasza pasja do kotów brytyjskich
-          </h2>
-          <p className="text-lg leading-relaxed text-left">
-            Bribella*PL to domowa hodowla kotów brytyjskich krótkowłosych.
-            Kochamy ich spokojny temperament, pluszowe futerko i wyjątkowy
+      <Section
+        title="Nasza pasja do&nbsp;kotów brytyjskich"
+        text="Bribella*PL to domowa hodowla kotów brytyjskich krótkowłosych.
+            Kochamy ich&nbsp;spokojny temperament, pluszowe futerko i&nbsp;wyjątkowy
             charakter. Nasze koty wychowują się w rodzinnej atmosferze, otoczone
-            troską i miłością.
-          </p>
-        </div>
-        <img
-          src="/logo.svg"
-          alt="Bribella logo"
-          className="max-w-15 xl:max-w-25 ml-10"
-        />
-      </section>
-
-      <section
-        className="relative h-[55vh] bg-cover bg-center flex flex-col justify-between"
-        style={{
-          backgroundImage: "url('/images/majestic.webp')",
-        }}
+            troską i&nbsp;miłością."
+        imageUrl="/logo.svg"
+        imageAlt="Bribella logo"
       />
+
+      <ParallaxImage
+        imageUrl="/images/flowers.webp"
+        alt="Kot brytyjski pod wiśnią"
+        height="95"
+      ></ParallaxImage>
 
       {/* Partnerstwo z WCF */}
-      <section className="max-w-5xl mx-auto mt-16 px-4 mb-20 text-bribella-black flex">
-        <img
-          src="/wcf_logo.svg"
-          alt="WCF logo"
-          className="max-w-15 xl:max-w-25 mr-10"
-        />
-        <div>
-          <h2 className="text-3xl font-semibold mb-4">Partnerstwo z WCF</h2>
-          <p className="text-lg leading-relaxed text-left">
-            Należymy do największej światowej federacji felinologicznej – World
+      <Section
+        title="Partnerstwo z WCF"
+        text="Należymy do największej światowej federacji felinologicznej –&nbsp;World
             Cat Federation (WCF). Wszystkie nasze kocie dzieci otrzymują
-            rodowody WCF, które potwierdzają ich rasowość i są respektowane na
-            całym świecie.
-          </p>
-        </div>
-      </section>
-
-      <section
-        className="relative h-[55vh] bg-cover bg-center flex flex-col justify-between"
-        style={{
-          backgroundImage: "url('/images/majestic.webp')",
-        }}
+            rodowody&nbsp;WCF, które potwierdzają ich rasowość i&nbsp;są respektowane na
+            całym świecie."
+        imageUrl="/wcf.svg"
+        imageAlt="WCF logo"
+        imageFirst
       />
 
-      <section className="max-w-5xl mx-auto mt-16 px-4 mb-20 text-bribella-black flex">
-        <div>
-          <h2 className="text-3xl font-semibold mb-4">Co u nas słychać?</h2>
-          <p className="text-lg leading-relaxed "></p>
-        </div>
+      <ParallaxImage
+        imageUrl="/images/box.webp"
+        alt="Kot brytyjski w pudełku"
+        height="100"
+      ></ParallaxImage>
+
+      <section
+        className="
+        mx-auto mt-16 px-4 mb-20
+        text-bribella-blue 
+        flex flex-col lg:flex-row items-center lg:justify-center"
+      >
+        <h2 className="text-4xl font-semibold m-4 p-4">Co u nas słychać?</h2>
+        <NavLink
+          to="/aktualnosci"
+          className="
+            text-3xl font-semibold 
+            border-4 border-bribella-blue 
+            rounded-xl
+            w-50
+            px-6 py-4 
+            hover:border-bribella-orange hover:text-bribella-orange 
+            transition-colors duration-300"
+        >
+          {" "}
+          Sprawdź
+        </NavLink>
       </section>
     </Layout>
   );

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { loadQuotes } from "../utils/loadMarkdown";
+
 type Quote = {
   author: string;
   quote: string;
@@ -15,9 +16,16 @@ function RandomQuote() {
   }, [allQuotes]);
 
   return (
-    <div className="text-left m-10 ml-20 p-10 bg-bribella-white/70 rounded-lg w-fit">
-      <p className="italic text-2xl">{quote?.quote}</p>
-      <p className="mt-2">– {quote?.author}</p>
+    <div
+      className="
+    text-left m-10 xl:ml-20 p-10
+    bg-bribella-white/65 rounded-lg w-fit 
+    shadow-lg shadow-gray-500/50
+    transition-shadow duration-300 ease-in-out 
+    hover:shadow-gray-600/50"
+    >
+      <p className="italic text-lg lg:text-2xl">{quote?.quote}</p>
+      <p className="text-sm lg:text-lg mt-2">– {quote?.author}</p>
     </div>
   );
 }
