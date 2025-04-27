@@ -30,7 +30,12 @@ function ParallaxImage(props: ParallaxImageProps) {
           flex flex-col justify-between"
       >
         {props.children ?? <div></div>}
-        {props.title && <Header title={props.title} />}
+        {props.title && (
+          <Header
+            title={props.title}
+            className="bg-bribella-blue text-bribella-orange"
+          />
+        )}
       </section>
     </Parallax>
   );

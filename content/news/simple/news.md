@@ -1,5 +1,5 @@
 ---
 title: Aktualności
 body: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet nunc sit amet diam consectetur euismod. Phasellus viverra semper commodo. Ut sed magna felis. In nisl felis, rhoncus ornare sodales vitae, tincidunt pharetra augue.
+  Bądź na bieżąco z tym, co dzieje się w naszej hodowli! Tutaj znajdziesz najnowsze informacje o planowanych miotach, narodzinach kociąt, sukcesach wystawowych oraz ważnych ogłoszeniach. Śledź nasze aktualizacje i poznaj życie naszych kotów z bliska.
 ---

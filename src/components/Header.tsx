@@ -1,20 +1,22 @@
 type HeaderProps = {
   title: string;
+  className?: string;
 };
 
 function Header(props: HeaderProps) {
   return (
-    <div
-      className="
-        bg-bribella-blue
+    <h1
+      className={`
         w-full
-        text-bribella-orange text-center
-        "
+        text-center 
+        text-5xl lg:text-8xl 
+        tracking-wide 
+        p-10 
+        font-[Corinthia] 
+        ${props.className ? props.className : ""}`}
     >
-      <h1 className="text-5xl lg:text-8xl m-4 tracking-wide p-10 font-[Corinthia] ">
-        {props.title}
-      </h1>
-    </div>
+      {props.title}
+    </h1>
   );
 }
 

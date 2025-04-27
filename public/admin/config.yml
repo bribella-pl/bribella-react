@@ -76,3 +76,16 @@ collections:
     fields:
       - { name: "title", label: "Tytuł", widget: "string" }
       - { name: "body", label: "Treść sekcji 'Kontakt'", widget: "rich-text" }
+
+  - name: "before-you-buy"
+    label: "Zanim kupisz"
+    folder: "content/before-you-buy"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Tytuł", widget: "string" }
+      - {
+          name: "body",
+          label: "Treść sekcji 'Zanim kupisz'",
+          widget: "rich-text",
+        }

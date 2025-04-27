@@ -1,9 +1,16 @@
+import { marked } from "marked";
+
+marked.setOptions({
+  breaks: true,
+  gfm: true,
+});
 export type SectionProps = {
   title?: string | undefined;
-  text: string | undefined;
+  text?: string | undefined;
   imageUrl?: string;
   imageAlt?: string;
   imageFirst?: boolean;
+  className?: string;
 };
 
 function Section(props: SectionProps) {
@@ -11,11 +18,13 @@ function Section(props: SectionProps) {
     <img src={props.imageUrl} alt={props.imageAlt} className="max-w-40 m-8" />
   ) : null;
 
+  const html = props.text ? marked(props.text) : "";
+
   return (
     <section
       className="
         w-[85%] lg:w-[75%] 
-        mx-auto my-16 px-4
+        mx-auto my-10 px-4
         text-bribella-black 
         flex flex-col lg:flex-row items-center"
     >
@@ -26,9 +35,10 @@ function Section(props: SectionProps) {
             {props.title}
           </h2>
         )}
-        <p className="text-md lg:text-lg leading-relaxed text-left p-5">
-          {props.text}
-        </p>
+        <div
+          className="text-md lg:text-lg leading-relaxed text-left p-5"
+          dangerouslySetInnerHTML={{ __html: html }}
+        ></div>
       </div>
       {!props.imageFirst && image}
     </section>
