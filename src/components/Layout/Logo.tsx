@@ -1,6 +1,11 @@
+import { NavLink } from "react-router-dom";
+
 function Logo() {
   return (
-    <div className="mx-1 p-1 xs:m-5 xs:px-5 flex xl:ml-8">
+    <NavLink
+      to="/"
+      className="mx-1 p-1 xs:m-5 xs:px-5 flex xl:ml-8 cursor-pointer"
+    >
       <img
         src="/logo.svg"
         alt="Bribella logo"
@@ -14,7 +19,7 @@ function Logo() {
           Hodowla kotów brytyjskich
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 }
 

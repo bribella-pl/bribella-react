@@ -4,12 +4,26 @@ type ImageModalProps = {
   images: string[];
   currentIndex: number;
   onClose: () => void;
+  setCurrentIndex: (index: number) => void;
 };
 
-function ImageModal({ images, currentIndex, onClose }: ImageModalProps) {
+function ImageModal({
+  images,
+  currentIndex,
+  onClose,
+  setCurrentIndex,
+}: ImageModalProps) {
   const [index, setIndex] = useState(currentIndex);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
+
+  useEffect(() => {
+    setIndex(currentIndex);
+  }, [currentIndex]);
+
+  useEffect(() => {
+    setCurrentIndex(index);
+  }, [index, setCurrentIndex]);
 
   // Zamknięcie ESC
   useEffect(() => {

@@ -4,6 +4,7 @@ import ParallaxImage from "../components/ParallaxImage";
 import Section from "../components/Section";
 import matter from "gray-matter";
 import { SimpleData } from "../types/types";
+import WhatsUp from "../components/WhatsUp";
 
 function About() {
   const [data, setData] = useState<SimpleData | null>(null);
@@ -26,6 +27,8 @@ function About() {
         title={data?.title}
       ></ParallaxImage>
       <Section text={data?.body}></Section>
+
+      <WhatsUp />
     </Layout>
   );
 }

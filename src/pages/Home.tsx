@@ -2,10 +2,10 @@ import Layout from "../components/Layout/Layout";
 import RandomQuote from "../components/RandomQuote";
 import Section from "../components/Section";
 import ParallaxImage from "../components/ParallaxImage";
-import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import matter from "gray-matter";
 import { decode } from "he";
+import WhatsUp from "../components/WhatsUp";
 
 type HomeData = {
   section1Title: string;
@@ -70,28 +70,7 @@ function Home() {
         height="100"
       ></ParallaxImage>
 
-      <section
-        className="
-        mx-auto mt-16 px-4 mb-20
-        text-bribella-blue 
-        flex flex-col lg:flex-row items-center lg:justify-center"
-      >
-        <h2 className="text-3xl font-semibold m-4 p-4">Co u nas słychać?</h2>
-        <NavLink
-          to="/aktualnosci"
-          className="
-            text-2xl font-semibold 
-            border-3 border-bribella-blue 
-            rounded-xl
-            w-50
-            px-6 py-4 
-            hover:border-bribella-orange hover:text-bribella-orange 
-            transition-colors duration-300"
-        >
-          {" "}
-          Sprawdź
-        </NavLink>
-      </section>
+      <WhatsUp />
     </Layout>
   );
 }

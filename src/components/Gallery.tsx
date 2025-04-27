@@ -50,23 +50,25 @@ function Gallery({ images }: GalleryProps) {
   };
 
   return (
-    <div className="w-full text-bribella-blue/75 m-4">
+    <div className="w-full text-bribella-blue/75 m-4 mt-10">
       {/* Desktop navigation */}
       <div className="relative hidden md:flex md:flex-row md:items-center md:justify-center">
-        <button
-          onClick={handlePrev}
-          className="
-            bg-transparent 
-            p-10 
-            cursor-pointer 
-            hover:text-bribella-orange 
-            transition-colors 
-            duration-300 
-            ease-in-out 
-            z-10"
-        >
-          ◀
-        </button>
+        {!isModalOpen && (
+          <button
+            onClick={handlePrev}
+            className="
+              bg-transparent 
+              p-10 
+              cursor-pointer 
+              hover:text-bribella-orange 
+              transition-colors 
+              duration-300 
+              ease-in-out 
+              z-10"
+          >
+            ◀
+          </button>
+        )}
         <div
           ref={containerRef}
           className="overflow-hidden flex justify-center items-center w-[60%] h-[50vh]"
@@ -78,20 +80,22 @@ function Gallery({ images }: GalleryProps) {
             onClick={() => setIsModalOpen(true)}
           />
         </div>
-        <button
-          onClick={handleNext}
-          className="
-            bg-transparent 
-            p-10 
-            cursor-pointer 
-            hover:text-bribella-orange 
-            transition-colors 
-            duration-300 
-            ease-in-out 
-            z-10"
-        >
-          ▶
-        </button>
+        {!isModalOpen && (
+          <button
+            onClick={handleNext}
+            className="
+              bg-transparent 
+              p-10 
+              cursor-pointer 
+              hover:text-bribella-orange 
+              transition-colors 
+              duration-300 
+              ease-in-out 
+              z-10"
+          >
+            ▶
+          </button>
+        )}
       </div>
 
       {/* Mobile swiper */}
@@ -133,6 +137,7 @@ function Gallery({ images }: GalleryProps) {
           images={images}
           currentIndex={currentIndex}
           onClose={() => setIsModalOpen(false)}
+          setCurrentIndex={setCurrentIndex}
         />
       )}
     </div>

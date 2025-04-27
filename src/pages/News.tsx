@@ -19,6 +19,7 @@ function News() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const newsContainerRef = useRef<HTMLDivElement>(null);
+  const [isTouched, setIsTouched] = useState<boolean>(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,10 +40,13 @@ function News() {
   }, []);
 
   useEffect(() => {
-    if (newsContainerRef?.current) {
+    if (currentPage === 1 && !isTouched) {
+      window.scrollTo(0, 0);
+    } else if (newsContainerRef?.current) {
       newsContainerRef.current.scrollIntoView({ behavior: "smooth" });
+      setIsTouched(true);
     }
-  }, [currentPage]);
+  }, [currentPage, isTouched]);
 
   const itemsPerPage = Number(simple.itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -87,10 +91,10 @@ function News() {
                 w-[85%] lg:w-[75%] 
                 mx-auto
                 text-bribella-black 
-                flex flex-col lg:flex-row items-center"
+                items-center"
               >
                 <div className="bg-bribella-grey/15 rounded-xl shadow-xl m-2 lg:m-3 p-8">
-                  <div className="text-md lg:text-lg leading-relaxed text-left p-5">
+                  <div className="text-md lg:text-lg leading-relaxed text-left">
                     {news.body}
                   </div>
                 </div>
