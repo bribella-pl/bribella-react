@@ -67,3 +67,12 @@ collections:
     fields:
       - { name: "title", label: "Tytuł", widget: "string" }
       - { name: "body", label: "Treść sekcji 'O nas'", widget: "rich-text" }
+
+  - name: "contact"
+    label: "Kontakt"
+    folder: "content/contact"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Tytuł", widget: "string" }
+      - { name: "body", label: "Treść sekcji 'Kontakt'", widget: "rich-text" }

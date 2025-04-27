@@ -14,6 +14,8 @@ function News() {
   const [data, setData] = useState<NewsData[] | null>(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     fetch("/content/news/simple/news.md")
       .then((res) => res.text())
       .then((text) => {
