@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "build:types": "tsc --build",
     "dev": "cross-env TEST_ENV=true vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run clean && npm run build:types && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -35,6 +37,7 @@
     "marked": "^15.0.11",
     "react-parallax": "^3.5.2",
     "react-parallax-tilt": "^1.7.289",
+    "rimraf": "^6.0.1",
     "tailwindcss": "^4.0.17",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
