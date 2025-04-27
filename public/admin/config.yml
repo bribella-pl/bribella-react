@@ -57,18 +57,18 @@ collections:
       - {
           name: "body",
           label: "Treść sekcji 'Aktualności'",
-          widget: "rich-text",
+          widget: "markdown",
         }
 
   - name: "post"
-    label: "Nowy wpis"
+    label: "Aktualności - nowy wpis"
     folder: "content/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { name: "date", label: "Data", widget: "datetime" }
       - { name: "title", label: "Tytuł wpisu", widget: "string" }
-      - { name: "body", label: "Treść wpisu", widget: "rich-text" }
+      - { name: "body", label: "Treść wpisu", widget: "markdown" }
       - {
           name: "images",
           label: "Zdjęcia",
@@ -79,12 +79,12 @@ collections:
 
   - name: "about"
     label: "O nas"
-    folder: "content/o-nas"
+    folder: "content/about"
     create: false
     slug: "{{slug}}"
     fields:
       - { name: "title", label: "Tytuł", widget: "string" }
-      - { name: "body", label: "Treść sekcji 'O nas'", widget: "rich-text" }
+      - { name: "body", label: "Treść sekcji 'O nas'", widget: "markdown" }
 
   - name: "contact"
     label: "Kontakt"
@@ -93,7 +93,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { name: "title", label: "Tytuł", widget: "string" }
-      - { name: "body", label: "Treść sekcji 'Kontakt'", widget: "rich-text" }
+      - { name: "body", label: "Treść sekcji 'Kontakt'", widget: "markdown" }
 
   - name: "before-you-buy"
     label: "Zanim kupisz"
@@ -105,5 +105,5 @@ collections:
       - {
           name: "body",
           label: "Treść sekcji 'Zanim kupisz'",
-          widget: "rich-text",
+          widget: "markdown",
         }
