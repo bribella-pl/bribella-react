@@ -3,12 +3,39 @@ import RandomQuote from "../components/RandomQuote";
 import Section from "../components/Section";
 import ParallaxImage from "../components/ParallaxImage";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import matter from "gray-matter";
+import { decode } from "he";
+
+type HomeData = {
+  section1Title: string;
+  section1Text: string;
+  section2Title: string;
+  section2Text: string;
+};
 
 function Home() {
+  const [data, setData] = useState<HomeData | null>(null);
+
+  useEffect(() => {
+    fetch("/content/home/home.md")
+      .then((response) => response.text())
+      .then((text) => {
+        const rawData = matter(text).data as HomeData;
+        const data = Object.fromEntries(
+          Object.entries(rawData).map(([key, value]) => [
+            key,
+            decode(String(value)),
+          ])
+        ) as HomeData;
+        setData(data);
+      });
+  }, []);
+
   return (
     <Layout>
       <ParallaxImage
-        imageUrl="/images/majestic.webp"
+        imageUrl="/images/glowa.webp"
         alt="Majestatyczny kot brytyjski"
         title="Witamy w&nbsp;Bribella*PL"
       >
@@ -16,36 +43,30 @@ function Home() {
       </ParallaxImage>
 
       <Section
-        title="Nasza pasja do&nbsp;kotów brytyjskich"
-        text="Bribella*PL to domowa hodowla kotów brytyjskich krótkowłosych.
-            Kochamy ich&nbsp;spokojny temperament, pluszowe futerko i&nbsp;wyjątkowy
-            charakter. Nasze koty wychowują się w rodzinnej atmosferze, otoczone
-            troską i&nbsp;miłością."
+        title={data?.section1Title}
+        text={data?.section1Text}
         imageUrl="/logo.svg"
         imageAlt="Bribella logo"
       />
 
       <ParallaxImage
-        imageUrl="/images/flowers.webp"
-        alt="Kot brytyjski pod wiśnią"
+        imageUrl="/images/drapak.webp"
+        alt="Kot brytyjski na drapaku"
         height="95"
       ></ParallaxImage>
 
       {/* Partnerstwo z WCF */}
       <Section
-        title="Partnerstwo z WCF"
-        text="Należymy do największej światowej federacji felinologicznej –&nbsp;World
-            Cat Federation (WCF). Wszystkie nasze kocie dzieci otrzymują
-            rodowody&nbsp;WCF, które potwierdzają ich rasowość i&nbsp;są respektowane na
-            całym świecie."
+        title={data?.section2Title}
+        text={data?.section2Text}
         imageUrl="/wcf.svg"
         imageAlt="WCF logo"
         imageFirst
       />
 
       <ParallaxImage
-        imageUrl="/images/box.webp"
-        alt="Kot brytyjski w pudełku"
+        imageUrl="/images/medale.webp"
+        alt="Puchary i medale"
         height="100"
       ></ParallaxImage>
 
@@ -55,12 +76,12 @@ function Home() {
         text-bribella-blue 
         flex flex-col lg:flex-row items-center lg:justify-center"
       >
-        <h2 className="text-4xl font-semibold m-4 p-4">Co u nas słychać?</h2>
+        <h2 className="text-3xl font-semibold m-4 p-4">Co u nas słychać?</h2>
         <NavLink
           to="/aktualnosci"
           className="
-            text-3xl font-semibold 
-            border-4 border-bribella-blue 
+            text-2xl font-semibold 
+            border-3 border-bribella-blue 
             rounded-xl
             w-50
             px-6 py-4 

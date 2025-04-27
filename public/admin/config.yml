@@ -15,19 +15,55 @@ collections:
       - { label: "Autor", name: "author", widget: "string" }
       - { label: "Cytat", name: "quote", widget: "text" }
 
-  - name: "koty"
-    label: "Koty"
-    folder: "content/koty"
-    create: true
+  - name: "home"
+    label: "Strona główna"
+    folder: "content/home"
+    create: false
     slug: "{{slug}}"
     fields:
-      - { label: "Imię", name: "name", widget: "string" }
       - {
-          label: "Płeć",
-          name: "gender",
-          widget: "select",
-          options: ["Kocur", "Kotka"],
+          label: "Sekcja pierwsza - tytuł",
+          name: "section1Title",
+          widget: "string",
         }
-      - { label: "Data urodzenia", name: "birthdate", widget: "date" }
-      - { label: "Opis", name: "description", widget: "markdown" }
-      - { label: "Zdjęcie", name: "image", widget: "image" }
+      - {
+          label: "Sekcja pierwsza - treść",
+          name: "section1Text",
+          widget: "string",
+        }
+      - {
+          label: "Sekcja druga - tytuł",
+          name: "section2Title",
+          widget: "string",
+        }
+      - {
+          label: "Sekcja druga - treść",
+          name: "section2Text",
+          widget: "string",
+        }
+
+  - name: "news"
+    label: "Aktualności"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: "date", label: "Data", widget: "datetime" }
+      - { name: "title", label: "Tytuł wpisu", widget: "string" }
+      - { name: "body", label: "Treść wpisu", widget: "rich-text" }
+      - {
+          name: "images",
+          label: "Zdjęcia",
+          widget: "list",
+          allow_add: true,
+          field: { label: "Obrazek", name: "image", widget: "image" },
+        }
+
+  - name: "about"
+    label: "O nas"
+    folder: "content/o-nas"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Tytuł", widget: "string" }
+      - { name: "body", label: "Treść sekcji 'O nas'", widget: "rich-text" }

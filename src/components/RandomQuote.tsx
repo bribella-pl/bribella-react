@@ -24,7 +24,7 @@ function RandomQuote() {
     transition-shadow duration-300 ease-in-out 
     hover:shadow-gray-600/50"
     >
-      <p className="italic text-lg lg:text-2xl">{quote?.quote}</p>
+      <p className="italic text-md lg:text-2xl">{quote?.quote}</p>
       <p className="text-sm lg:text-lg mt-2">– {quote?.author}</p>
     </div>
   );

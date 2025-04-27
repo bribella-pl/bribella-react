@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Parallax } from "react-parallax";
+import Header from "./Header";
 
 export type ParallaxImageProps = {
   imageUrl: string;
@@ -24,24 +25,12 @@ function ParallaxImage(props: ParallaxImageProps) {
     >
       <section
         className="
-  relative 
-  h-[85vh] 
-  flex flex-col justify-between"
+          relative 
+          h-[85vh] 
+          flex flex-col justify-between"
       >
-        {props.children}
-        {props.title && (
-          <div
-            className="
-bg-bribella-blue
-  w-full
-  text-bribella-orange text-center
-  "
-          >
-            <h1 className="text-5xl lg:text-8xl m-4 tracking-wide p-10 font-[Corinthia] ">
-              {props.title}
-            </h1>
-          </div>
-        )}
+        {props.children ?? <div></div>}
+        {props.title && <Header title={props.title} />}
       </section>
     </Parallax>
   );
