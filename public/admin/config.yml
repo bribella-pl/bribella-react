@@ -44,6 +44,24 @@ collections:
 
   - name: "news"
     label: "Aktualności"
+    folder: "content/news/simple"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Tytuł", widget: "string" }
+      - {
+          name: "itemsPerPage",
+          label: "Ilość wpisów na jednej stronie",
+          widget: "string",
+        }
+      - {
+          name: "body",
+          label: "Treść sekcji 'Aktualności'",
+          widget: "rich-text",
+        }
+
+  - name: "post"
+    label: "Nowy wpis"
     folder: "content/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"

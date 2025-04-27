@@ -50,7 +50,7 @@ function Gallery({ images }: GalleryProps) {
   };
 
   return (
-    <div className="w-full text-bribella-blue/75">
+    <div className="w-full text-bribella-blue/75 m-4">
       {/* Desktop navigation */}
       <div className="relative hidden md:flex md:flex-row md:items-center md:justify-center">
         <button
@@ -69,12 +69,12 @@ function Gallery({ images }: GalleryProps) {
         </button>
         <div
           ref={containerRef}
-          className="overflow-hidden flex justify-center items-center w-[40%]"
+          className="overflow-hidden flex justify-center items-center w-[60%] h-[50vh]"
         >
           <img
             src={images[currentIndex]}
             alt={`Galeria ${currentIndex + 1}`}
-            className="max-h-[60vh] object-contain transition-transform duration-300 cursor-pointer"
+            className="max-h-[50vh] object-contain transition-transform duration-300 cursor-pointer rounded-2xl"
             onClick={() => setIsModalOpen(true)}
           />
         </div>

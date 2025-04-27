@@ -1,5 +1,5 @@
 ---
 title: O nas
 body: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet nunc sit amet diam consectetur euismod. Phasellus viverra semper commodo. Ut sed magna felis. In nisl felis, rhoncus ornare sodales vitae, tincidunt pharetra augue.
+  Bribella*PL to hodowla kotów brytyjskich krótkowłosych, prowadzona z pasją w domowym zaciszu. Uwielbiamy ich łagodne usposobienie, miękką, pluszową sierść oraz niepowtarzalną osobowość. Nasze koty dorastają w ciepłej, rodzinnej atmosferze, otoczone miłością i troską. Jesteśmy członkiem największej na świecie organizacji felinologicznej – World Cat Federation (WCF). Wszystkie nasze maluchy otrzymują rodowody WCF, potwierdzające ich pochodzenie i uznawane na całym świecie.
 ---
