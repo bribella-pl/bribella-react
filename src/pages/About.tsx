@@ -21,9 +21,9 @@ function About() {
   return (
     <Layout>
       <ParallaxImage
-        imageUrl="/images/bok.webp"
+        imageUrl="/images/glowa.webp"
         alt="Majestatyczny kot brytyjski"
-        title="O nas"
+        title={data?.title}
       ></ParallaxImage>
       <Section text={data?.body}></Section>
     </Layout>

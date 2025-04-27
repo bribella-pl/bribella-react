@@ -9,7 +9,6 @@ function Gallery({ images }: GalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalImage, setModalImage] = useState<string | null>(null);
 
   const scrollToIndex = (index: number) => {
     const container = containerRef.current;
@@ -57,8 +56,13 @@ function Gallery({ images }: GalleryProps) {
         <button
           onClick={handlePrev}
           className="
-            bg-transparent p-20 cursor-pointer 
-            hover:opacity-75 transition-opacity duration-300 ease-in-out 
+            bg-transparent 
+            p-10 
+            cursor-pointer 
+            hover:text-bribella-orange 
+            transition-colors 
+            duration-300 
+            ease-in-out 
             z-10"
         >
           ◀
@@ -70,18 +74,20 @@ function Gallery({ images }: GalleryProps) {
           <img
             src={images[currentIndex]}
             alt={`Galeria ${currentIndex + 1}`}
-            className="max-h-[60vh] object-contain"
-            onClick={() => {
-              setModalImage(images[currentIndex]);
-              setIsModalOpen(true);
-            }}
+            className="max-h-[60vh] object-contain transition-transform duration-300 cursor-pointer"
+            onClick={() => setIsModalOpen(true)}
           />
-        </div>{" "}
+        </div>
         <button
           onClick={handleNext}
           className="
-            bg-transparent p-20 cursor-pointer 
-            hover:opacity-75 transition-opacity duration-300 ease-in-out 
+            bg-transparent 
+            p-10 
+            cursor-pointer 
+            hover:text-bribella-orange 
+            transition-colors 
+            duration-300 
+            ease-in-out 
             z-10"
         >
           ▶
@@ -92,19 +98,16 @@ function Gallery({ images }: GalleryProps) {
       <div
         ref={containerRef}
         onScroll={handleScroll}
-        className="flex md:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory "
+        className="flex md:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory"
       >
         {images.map((image, index) => (
-          <div
-            key={index}
-            className="min-w-[90%] mx-2 snap-center flex-shrink-0"
-          >
+          <div key={index} className="mx-2 snap-center flex-shrink-0">
             <img
               src={image}
               alt={`g${index + 1}`}
-              className="object-cover w-full h-60 rounded-xl"
+              className="object-contain h-60 max-w-full max-h-60 rounded-xl cursor-pointer"
               onClick={() => {
-                setModalImage(images[currentIndex]);
+                setCurrentIndex(index);
                 setIsModalOpen(true);
               }}
             />
@@ -124,9 +127,11 @@ function Gallery({ images }: GalleryProps) {
         ))}
       </div>
 
-      {isModalOpen && modalImage && (
+      {/* Modal */}
+      {isModalOpen && (
         <ImageModal
-          imageSrc={modalImage}
+          images={images}
+          currentIndex={currentIndex}
           onClose={() => setIsModalOpen(false)}
         />
       )}

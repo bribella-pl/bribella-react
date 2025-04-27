@@ -1,10 +1,5 @@
 ---
-title: "Lorem ipsum 2"
-date: "2025-04-27T07:09:00Z"
-images:
-  - "/images/drapak3.webp"
-  - "/images/plecki.webp"
-  - "/images/medale.webp"
+title: Kontakt
 body: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet nunc sit amet diam consectetur euismod. Phasellus viverra semper commodo. Ut sed magna felis. In nisl felis, rhoncus ornare sodales vitae, tincidunt pharetra augue.
 ---
