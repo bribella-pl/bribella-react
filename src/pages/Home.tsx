@@ -2,35 +2,12 @@ import Layout from "../components/Layout/Layout";
 import RandomQuote from "../components/RandomQuote";
 import Section from "../components/Section";
 import ParallaxImage from "../components/ParallaxImage";
-import { useEffect, useState } from "react";
-import matter from "gray-matter";
-import { decode } from "he";
+import { useMemo } from "react";
 import WhatsUp from "../components/WhatsUp";
-
-type HomeData = {
-  section1Title: string;
-  section1Text: string;
-  section2Title: string;
-  section2Text: string;
-};
+import { loadHomePage } from "../utils/loaders/loadHomePage";
 
 function Home() {
-  const [data, setData] = useState<HomeData | null>(null);
-
-  useEffect(() => {
-    fetch("/content/home/home.md")
-      .then((response) => response.text())
-      .then((text) => {
-        const rawData = matter(text).data as HomeData;
-        const data = Object.fromEntries(
-          Object.entries(rawData).map(([key, value]) => [
-            key,
-            decode(String(value)),
-          ])
-        ) as HomeData;
-        setData(data);
-      });
-  }, []);
+  const homeData = useMemo(() => loadHomePage(), []);
 
   return (
     <Layout>
@@ -43,8 +20,8 @@ function Home() {
       </ParallaxImage>
 
       <Section
-        title={data?.section1Title}
-        text={data?.section1Text}
+        title={homeData?.section1Title}
+        text={homeData?.section1Text}
         imageUrl="/logo.svg"
         imageAlt="Bribella logo"
       />
@@ -57,8 +34,8 @@ function Home() {
 
       {/* Partnerstwo z WCF */}
       <Section
-        title={data?.section2Title}
-        text={data?.section2Text}
+        title={homeData?.section2Title}
+        text={homeData?.section2Text}
         imageUrl="/wcf.svg"
         imageAlt="WCF logo"
         imageFirst

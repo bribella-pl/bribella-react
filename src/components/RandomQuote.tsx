@@ -1,10 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
-import { loadQuotes } from "../utils/loadMarkdown";
+import { loadQuotes } from "../utils/loaders/loadQuotes";
+import { Quote } from "../types/types";
 
-type Quote = {
-  author: string;
-  quote: string;
-};
 function RandomQuote() {
   const [quote, setQuote] = useState<Quote | null>(null);
 

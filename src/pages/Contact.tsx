@@ -1,23 +1,11 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import Layout from "../components/Layout/Layout";
 import ParallaxImage from "../components/ParallaxImage";
 import Section from "../components/Section";
-import matter from "gray-matter";
-import { SimpleData } from "../types/types";
+import { loadContactPage } from "../utils/loaders/loadContactPage";
 
 function Contact() {
-  const [data, setData] = useState<SimpleData | null>(null);
-
-  useEffect(() => {
-    fetch("/content/contact/contact.md")
-      .then((res) => res.text())
-      .then((text) => {
-        const parsed = matter(text);
-        setData(parsed.data as SimpleData);
-      })
-      .catch((err) => console.error(err));
-  }, []);
-
+  const data = useMemo(() => loadContactPage(), []);
   return (
     <Layout>
       <ParallaxImage

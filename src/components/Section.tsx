@@ -23,20 +23,20 @@ function Section(props: SectionProps) {
   return (
     <section
       className="
-        w-[85%] lg:w-[75%] 
-        mx-auto my-10 px-4
+        w-[95%] lg:w-[75%] 
+        mx-auto my-10 px-2 lg:px-4
         text-bribella-black 
         flex flex-col lg:flex-row items-center"
     >
       {props.imageFirst && image}
-      <div className="bg-bribella-grey/15 rounded-xl shadow-xl m-2 lg:m-10 p-8">
+      <div className="bg-bribella-grey/15 rounded-xl shadow-xl m-2 lg:m-10 p-4 lg:p-8">
         {props.title && (
           <h2 className="text-lg lg:text-3xl font-semibold p-5">
             {props.title}
           </h2>
         )}
         <div
-          className="text-md lg:text-lg leading-relaxed text-left p-5"
+          className="text-md lg:text-lg leading-relaxed text-left p-2 lg:p-5"
           dangerouslySetInnerHTML={{ __html: html }}
         ></div>
       </div>

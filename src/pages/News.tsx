@@ -1,43 +1,29 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import Layout from "../components/Layout/Layout";
 import ParallaxImage from "../components/ParallaxImage";
 import Section from "../components/Section";
-import matter from "gray-matter";
-import { NewsData, loadNews } from "../utils/loadMarkdown";
-import { SimpleData } from "../types/types";
 import Header from "../components/Header";
 import { formatDate } from "../utils/dateParser";
 import Gallery from "../components/Gallery";
+import { loadNewsPage } from "../utils/loaders/newsLoaders/loadNewsPage";
+import { loadAllNews } from "../utils/loaders/newsLoaders/loadAllNews";
 
 function News() {
-  const [simple, setSimple] = useState<SimpleData>({
-    title: "",
-    body: "",
-    itemsPerPage: "3",
-  });
-  const [data, setData] = useState<NewsData[] | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   const newsContainerRef = useRef<HTMLDivElement>(null);
   const [isTouched, setIsTouched] = useState<boolean>(false);
 
+  const newsData = useMemo(() => loadNewsPage(), []);
+  const news = useMemo(() => loadAllNews(), []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    fetch("/content/news/simple/news.md")
-      .then((res) => res.text())
-      .then((text) => {
-        const parsed = matter(text);
-        setSimple(parsed.data as SimpleData);
-      })
-      .catch((err) => console.error(err));
   }, []);
 
   useEffect(() => {
-    const news = loadNews();
     news.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
-    setData(news);
-  }, []);
+  }, [news]);
 
   useEffect(() => {
     if (currentPage === 1 && !isTouched) {
@@ -48,12 +34,12 @@ function News() {
     }
   }, [currentPage, isTouched]);
 
-  const itemsPerPage = Number(simple.itemsPerPage);
+  const itemsPerPage = Number(newsData.itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data?.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = news?.slice(indexOfFirstItem, indexOfLastItem);
 
-  const totalPages = data ? Math.ceil(data.length / itemsPerPage) : 1;
+  const totalPages = news ? Math.ceil(news.length / itemsPerPage) : 1;
 
   const handleNextPage = () => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
@@ -68,9 +54,9 @@ function News() {
       <ParallaxImage
         imageUrl="/images/drapak2.webp"
         alt="Majestatyczny kot brytyjski"
-        title={simple?.title}
+        title={newsData?.title}
       ></ParallaxImage>
-      <Section text={simple?.body}></Section>
+      <Section text={newsData?.body}></Section>
 
       <div ref={newsContainerRef}>
         {currentItems &&
@@ -103,7 +89,7 @@ function News() {
             </div>
           ))}
       </div>
-      {data && data.length > itemsPerPage && (
+      {news && news.length > itemsPerPage && (
         <div className="flex justify-center items-center gap-4 my-10">
           <button
             onClick={handlePrevPage}
