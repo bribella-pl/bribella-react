@@ -6,6 +6,31 @@
   --color-bribella-black: #36312b;
   --color-bribella-orange: #f69103;
   --color-bribella-white: #fcfcfc;
+
+  --animate-slide-fade-in-left: slide-fade-in-left 0.3s ease;
+  --animate-slide-fade-in-right: slide-fade-in-right 0.3s ease;
+
+  @keyframes slide-fade-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-20vh);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-fade-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(20vh);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 }
 
 body {

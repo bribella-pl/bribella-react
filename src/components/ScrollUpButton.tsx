@@ -1,8 +1,10 @@
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useModalStore } from "../context/modalStore";
 
-function ScrollToTopButton() {
+function ScrollUpButton() {
   const [visible, setVisible] = useState(false);
+  const anyModalOpen = useModalStore((state) => state.anyModalOpen);
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -21,6 +23,8 @@ function ScrollToTopButton() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const shouldShow = visible && !anyModalOpen;
+
   return (
     <button
       onClick={scrollToTop}
@@ -36,7 +40,7 @@ function ScrollToTopButton() {
         transition-colors duration-300 
         z-50
          ${
-           visible
+           shouldShow
              ? "opacity-100 pointer-events-auto"
              : "opacity-0 pointer-events-none"
          }
@@ -49,4 +53,4 @@ function ScrollToTopButton() {
   );
 }
 
-export default ScrollToTopButton;
+export default ScrollUpButton;

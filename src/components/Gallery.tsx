@@ -1,53 +1,55 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ImageModal from "./ImageModal";
+import { useModalStore } from "../context/modalStore";
 
 type GalleryProps = {
   images: string[];
 };
 
 function Gallery({ images }: GalleryProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const mobileContainerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { setAnyModalOpen } = useModalStore();
 
   const scrollToIndex = (index: number) => {
-    const container = containerRef.current;
-    if (container) {
-      const child = container.children[index] as HTMLElement;
+    const container = mobileContainerRef.current;
+    if (!container || !container.children[index]) return;
+
+    const child = container.children[index] as HTMLElement;
+
+    const targetScroll =
+      child.offsetLeft - (container.offsetWidth - child.offsetWidth) / 2;
+
+    const diff = Math.abs(container.scrollLeft - targetScroll);
+    if (diff > 5) {
       container.scrollTo({
-        left:
-          child.offsetLeft - (container.offsetWidth - child.offsetWidth) / 2,
+        left: targetScroll,
         behavior: "smooth",
       });
-      setCurrentIndex(index);
     }
   };
 
+  useEffect(() => {
+    if (!isModalOpen) {
+      scrollToIndex(currentIndex);
+    }
+  }, [currentIndex, isModalOpen]);
+
   const handleNext = () => {
-    scrollToIndex((currentIndex + 1) % images.length);
+    const next = (currentIndex + 1) % images.length;
+    setCurrentIndex(next);
   };
 
   const handlePrev = () => {
-    scrollToIndex((currentIndex - 1 + images.length) % images.length);
+    const prev = (currentIndex - 1 + images.length) % images.length;
+    setCurrentIndex(prev);
   };
 
-  const handleScroll = () => {
-    const container = containerRef.current;
-    if (container) {
-      const scrollLeft = container.scrollLeft;
-      const widths = Array.from(container.children).map(
-        (child) => (child as HTMLElement).offsetWidth
-      );
-      let cumulativeWidth = 0;
-      for (let i = 0; i < widths.length; i++) {
-        cumulativeWidth += widths[i];
-        if (scrollLeft + container.offsetWidth / 2 < cumulativeWidth) {
-          setCurrentIndex(i);
-          break;
-        }
-      }
-    }
-  };
+  useEffect(() => {
+    setAnyModalOpen(isModalOpen);
+    return () => setAnyModalOpen(false);
+  }, [isModalOpen, setAnyModalOpen]);
 
   return (
     <div className="w-full text-bribella-blue/75 m-4 mt-10">
@@ -56,23 +58,12 @@ function Gallery({ images }: GalleryProps) {
         {!isModalOpen && (
           <button
             onClick={handlePrev}
-            className="
-              bg-transparent 
-              p-10 
-              cursor-pointer 
-              hover:text-bribella-orange 
-              transition-colors 
-              duration-300 
-              ease-in-out 
-              z-10"
+            className="bg-transparent p-10 cursor-pointer hover:text-bribella-orange transition-colors duration-300 ease-in-out z-10"
           >
             ◀
           </button>
         )}
-        <div
-          ref={containerRef}
-          className="overflow-hidden flex justify-center items-center w-[60%] h-[50vh]"
-        >
+        <div className="overflow-hidden flex justify-center items-center w-[60%] h-[50vh]">
           <img
             src={images[currentIndex]}
             alt={`Galeria ${currentIndex + 1}`}
@@ -83,15 +74,7 @@ function Gallery({ images }: GalleryProps) {
         {!isModalOpen && (
           <button
             onClick={handleNext}
-            className="
-              bg-transparent 
-              p-10 
-              cursor-pointer 
-              hover:text-bribella-orange 
-              transition-colors 
-              duration-300 
-              ease-in-out 
-              z-10"
+            className="bg-transparent p-10 cursor-pointer hover:text-bribella-orange transition-colors duration-300 ease-in-out z-10"
           >
             ▶
           </button>
@@ -100,12 +83,11 @@ function Gallery({ images }: GalleryProps) {
 
       {/* Mobile swiper */}
       <div
-        ref={containerRef}
-        onScroll={handleScroll}
+        ref={mobileContainerRef}
         className="flex md:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory"
       >
         {images.map((image, index) => (
-          <div key={index} className="mx-2 snap-center flex-shrink-0">
+          <div key={index} className="mx-2 snap-none flex-shrink-0">
             <img
               src={image}
               alt={`g${index + 1}`}
