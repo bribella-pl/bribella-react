@@ -24,6 +24,7 @@ function Home() {
         text={homeData?.section1Text}
         imageUrl="/logo.svg"
         imageAlt="Bribella logo"
+        className="shadow-xl"
       />
 
       <ParallaxImage
@@ -39,6 +40,7 @@ function Home() {
         imageUrl="/wcf.svg"
         imageAlt="WCF logo"
         imageFirst
+        className="shadow-xl"
       />
 
       <ParallaxImage

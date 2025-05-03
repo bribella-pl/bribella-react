@@ -29,7 +29,11 @@ function Section(props: SectionProps) {
         flex flex-col lg:flex-row items-center"
     >
       {props.imageFirst && image}
-      <div className="bg-bribella-grey/15 rounded-xl shadow-xl m-2 lg:m-10 p-4 lg:p-8">
+      <div
+        className={`bg-bribella-grey/15 rounded-xl m-2 lg:m-10 p-4 lg:p-8 ${
+          props.className ? props.className : ""
+        }`}
+      >
         {props.title && (
           <h2 className="text-lg lg:text-3xl font-semibold p-5">
             {props.title}

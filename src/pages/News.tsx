@@ -15,15 +15,15 @@ function News() {
   const [isTouched, setIsTouched] = useState<boolean>(false);
 
   const newsData = useMemo(() => loadNewsPage(), []);
-  const news = useMemo(() => loadAllNews(), []);
+  const news = useMemo(() => {
+    const n = loadAllNews();
+    n.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+    return n;
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  useEffect(() => {
-    news.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
-  }, [news]);
 
   useEffect(() => {
     if (currentPage === 1 && !isTouched) {
@@ -35,6 +35,7 @@ function News() {
   }, [currentPage, isTouched]);
 
   const itemsPerPage = Number(newsData.itemsPerPage);
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = news?.slice(indexOfFirstItem, indexOfLastItem);
@@ -56,35 +57,30 @@ function News() {
         alt="Majestatyczny kot brytyjski"
         title={newsData?.title}
       ></ParallaxImage>
-      <Section text={newsData?.body}></Section>
+
+      <Section
+        text={newsData?.body}
+        className="bg-bribella-white shadow-none"
+      ></Section>
 
       <div ref={newsContainerRef}>
         {currentItems &&
           currentItems.map((news) => (
             <div
               key={news.date}
-              className="m-4 lg:m-auto lg:mb-6 lg:w-[66%] bg-bribella-white rounded-xl overflow-hidden shadow-sm "
+              className="m-4 lg:m-auto lg:mb-6 lg:w-[66%] rounded-xl overflow-hidden shadow-xl bg-bribella-grey/15"
             >
               <Header
                 title={news.title}
-                className="bg-bribella-orange text-bribella-blue"
+                className="text-bribella-blue text-left pl-4 lg:p-10 pb-1"
               />
-              <div className="text-bribella-blue/60 p-4 mb-0">
+              <div className="text-bribella-blue/60 p-4 lg:pl-10 lg:py-0 mb-0 text-left">
                 {formatDate(news.date)}
               </div>
-              <section
-                className="
-                w-[85%] lg:w-[75%] 
-                mx-auto
-                text-bribella-black 
-                items-center"
-              >
-                <div className="bg-bribella-grey/15 rounded-xl shadow-xl m-2 lg:m-3 p-8">
-                  <div className="text-md lg:text-lg leading-relaxed text-left">
-                    {news.body}
-                  </div>
-                </div>
-              </section>
+
+              <div className="text-md lg:text-lg leading-relaxed text-left p-4 lg:p-10">
+                {news.body}
+              </div>
               <Gallery images={news.images} />
             </div>
           ))}
