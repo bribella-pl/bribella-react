@@ -26,8 +26,10 @@ function ImageModal({
       }
     };
     window.addEventListener("keydown", handleEsc);
+    document.body.classList.add("overflow-hidden");
     return () => {
       window.removeEventListener("keydown", handleEsc);
+      document.body.classList.remove("overflow-hidden");
     };
   }, [onClose]);
 
