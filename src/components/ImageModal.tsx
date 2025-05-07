@@ -73,7 +73,7 @@ function ImageModal({
     <div
       className="
         fixed top-0 left-0 w-full h-full 
-        bg-bribella-blue/50 
+        bg-bribella-blue/85
         flex items-center justify-center 
         z-50"
       onTouchStart={handleTouchStart}

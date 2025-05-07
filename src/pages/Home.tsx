@@ -30,7 +30,6 @@ function Home() {
       <ParallaxImage
         imageUrl="/images/drapak.webp"
         alt="Kot brytyjski na drapaku"
-        height="95"
       ></ParallaxImage>
 
       {/* Partnerstwo z WCF */}
@@ -46,7 +45,6 @@ function Home() {
       <ParallaxImage
         imageUrl="/images/medale.webp"
         alt="Puchary i medale"
-        height="100"
       ></ParallaxImage>
 
       <WhatsUp />

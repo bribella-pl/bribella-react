@@ -12,12 +12,14 @@ function Gallery({ images }: GalleryProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { setAnyModalOpen } = useModalStore();
 
+  const isUserScrollingRef = useRef(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const scrollToIndex = (index: number) => {
     const container = mobileContainerRef.current;
     if (!container || !container.children[index]) return;
 
     const child = container.children[index] as HTMLElement;
-
     const targetScroll =
       child.offsetLeft - (container.offsetWidth - child.offsetWidth) / 2;
 
@@ -31,8 +33,11 @@ function Gallery({ images }: GalleryProps) {
   };
 
   useEffect(() => {
-    if (!isModalOpen) {
-      scrollToIndex(currentIndex);
+    if (!isModalOpen && !isUserScrollingRef.current) {
+      const timeout = setTimeout(() => {
+        scrollToIndex(currentIndex);
+      }, 100);
+      return () => clearTimeout(timeout);
     }
   }, [currentIndex, isModalOpen]);
 
@@ -50,6 +55,49 @@ function Gallery({ images }: GalleryProps) {
     setAnyModalOpen(isModalOpen);
     return () => setAnyModalOpen(false);
   }, [isModalOpen, setAnyModalOpen]);
+
+  useEffect(() => {
+    const container = mobileContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      isUserScrollingRef.current = true;
+
+      if (timeoutRef.current !== null) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      timeoutRef.current = setTimeout(() => {
+        isUserScrollingRef.current = false;
+      }, 150);
+
+      const children = Array.from(container.children);
+      const containerCenter = container.scrollLeft + container.offsetWidth / 2;
+
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      children.forEach((child, index) => {
+        const element = child as HTMLElement;
+        const childCenter = element.offsetLeft + element.offsetWidth / 2;
+        const distance = Math.abs(containerCenter - childCenter);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setCurrentIndex(closestIndex);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+      if (timeoutRef.current !== null) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="w-full text-bribella-blue/75 m-4 mt-10">
@@ -84,14 +132,14 @@ function Gallery({ images }: GalleryProps) {
       {/* Mobile swiper */}
       <div
         ref={mobileContainerRef}
-        className="flex md:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory"
+        className="flex md:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide"
       >
         {images.map((image, index) => (
-          <div key={index} className="mx-2 snap-none flex-shrink-0">
+          <div key={index} className="mx-2 snap-center flex-shrink-0">
             <img
               src={image}
               alt={`g${index + 1}`}
-              className="object-contain h-60 max-w-full max-h-60 rounded-xl cursor-pointer"
+              className="object-contain h-80 max-w-full rounded-xl cursor-pointer"
               onClick={() => {
                 setCurrentIndex(index);
                 setIsModalOpen(true);

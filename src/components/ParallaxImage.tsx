@@ -7,7 +7,6 @@ export type ParallaxImageProps = {
   alt: string;
   title?: string | null;
   children?: ReactNode | null;
-  height?: string | null;
 };
 
 function ParallaxImage(props: ParallaxImageProps) {
@@ -20,7 +19,7 @@ function ParallaxImage(props: ParallaxImageProps) {
       bgImageStyle={{
         objectFit: "cover",
         width: "100%",
-        height: `${props.height ?? "85"}%`,
+        height: "100%",
       }}
     >
       <section
