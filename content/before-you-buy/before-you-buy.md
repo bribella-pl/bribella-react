@@ -1,6 +1,6 @@
 ---
 title: Zanim kupisz
-body: |
+content: |
   # Przemyśl to
 
   Kot to towarzysz na wiele lat, dlatego warto dobrze przemyśleć wybór. Zastanów się, czy chcesz kota rasowego, a jeśli tak – jaka rasa odpowiada Twoim oczekiwaniom pod względem wyglądu i charakteru. Kot rasowy pochodzi z legalnej, zarejestrowanej hodowli, gdzie dba się o zdrowie, socjalizację i prawidłowy rozwój zwierząt.
