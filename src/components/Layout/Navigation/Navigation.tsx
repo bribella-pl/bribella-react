@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import NavItem from "./NavItem";
 import Logo from "../Logo";
@@ -6,6 +6,16 @@ import Logo from "../Logo";
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isOpen]);
   return (
     <nav className="p-4 flex flex-nowrap items-center justify-between relative bg-bribella-white shadow-lg shadow-gray-300/50 z-5">
       <Logo />

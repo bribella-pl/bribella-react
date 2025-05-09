@@ -111,7 +111,7 @@ function Gallery({ images }: GalleryProps) {
             ◀
           </button>
         )}
-        <div className="overflow-hidden flex justify-center items-center h-[70vh]">
+        <div className="overflow-hidden flex justify-center items-center h-[70vh] max-w-[90vh]">
           <img
             src={images[currentIndex]}
             alt={`Galeria ${currentIndex + 1}`}
