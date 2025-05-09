@@ -111,11 +111,11 @@ function Gallery({ images }: GalleryProps) {
             ◀
           </button>
         )}
-        <div className="overflow-hidden flex justify-center items-center w-[60%] h-[50vh]">
+        <div className="overflow-hidden flex justify-center items-center h-[70vh]">
           <img
             src={images[currentIndex]}
             alt={`Galeria ${currentIndex + 1}`}
-            className="max-h-[50vh] object-contain transition-transform duration-300 cursor-pointer rounded-2xl"
+            className="object-contain transition-transform duration-300 cursor-pointer rounded-2xl"
             onClick={() => setIsModalOpen(true)}
           />
         </div>
