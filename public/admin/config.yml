@@ -21,7 +21,7 @@ collections:
     create: false
     slug: "{{slug}}"
     fields:
-      - { label: "Pierwsze zdjęcie", name: "mainImage", widget: "image" }
+      - { label: "Główne zdjęcie", name: "mainImage", widget: "image" }
       - {
           label: "Sekcja pierwsza - tytuł",
           name: "section1Title",
@@ -32,6 +32,7 @@ collections:
           name: "section1Text",
           widget: "string",
         }
+      - { label: "Drugie zdjęcie", name: "secondImage", widget: "image" }
       - {
           label: "Sekcja druga - tytuł",
           name: "section2Title",
@@ -42,6 +43,7 @@ collections:
           name: "section2Text",
           widget: "string",
         }
+      - { label: "Trzecie zdjęcie", name: "thirdImage", widget: "image" }
 
   - name: "news"
     label: "Aktualności"

@@ -28,7 +28,7 @@ function Home() {
       />
 
       <ParallaxImage
-        imageUrl="/images/drapak.webp"
+        imageUrl={homeData.secondImage}
         alt="Kot brytyjski na drapaku"
       ></ParallaxImage>
 
@@ -43,7 +43,7 @@ function Home() {
       />
 
       <ParallaxImage
-        imageUrl="/images/medale.webp"
+        imageUrl={homeData.thirdImage}
         alt="Puchary i medale"
       ></ParallaxImage>
 

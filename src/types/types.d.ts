@@ -15,8 +15,10 @@ export type HomeData = {
   mainImage: string;
   section1Title: string;
   section1Text: string;
+  secondImage: string;
   section2Title: string;
   section2Text: string;
+  thirdImage: string;
 };
 
 export type Quote = {
