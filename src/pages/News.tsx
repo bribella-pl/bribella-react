@@ -59,7 +59,7 @@ function News() {
       ></ParallaxImage>
 
       <Section
-        text={newsData?.body}
+        text={newsData?.content}
         className="bg-bribella-white shadow-none"
       ></Section>
 

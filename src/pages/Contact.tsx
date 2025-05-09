@@ -13,7 +13,7 @@ function Contact() {
         alt="Majestatyczny kot brytyjski"
         title={data?.title}
       ></ParallaxImage>
-      <Section text={data?.body} className="shadow-xl"></Section>
+      <Section text={data?.content} className="shadow-xl"></Section>
     </Layout>
   );
 }
