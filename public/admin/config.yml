@@ -21,6 +21,7 @@ collections:
     create: false
     slug: "{{slug}}"
     fields:
+      - { label: "Pierwsze zdjęcie", name: "mainImage", widget: "image" }
       - {
           label: "Sekcja pierwsza - tytuł",
           name: "section1Title",
