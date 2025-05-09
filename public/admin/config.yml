@@ -99,6 +99,7 @@ collections:
     label: "Zanim kupisz"
     files:
       - label: "Zanim kupisz"
+        name: "before-you-buy"
         file: "content/before-you-buy/before-you-buy.md"
         fields:
           - { name: "title", label: "Tytuł", widget: "string" }
