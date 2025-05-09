@@ -73,3 +73,15 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+h2 {
+  font-size: 1.25rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.15rem;
+  padding: 0.85rem 0;
+  text-align: center;
+}

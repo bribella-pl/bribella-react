@@ -55,7 +55,7 @@ collections:
           widget: "string",
         }
       - {
-          name: "body",
+          name: "content",
           label: "Treść sekcji 'Aktualności'",
           widget: "markdown",
         }
@@ -68,7 +68,7 @@ collections:
     fields:
       - { name: "date", label: "Data", widget: "datetime" }
       - { name: "title", label: "Tytuł wpisu", widget: "string" }
-      - { name: "body", label: "Treść wpisu", widget: "markdown" }
+      - { name: "content", label: "Treść wpisu", widget: "markdown" }
       - {
           name: "images",
           label: "Zdjęcia",
@@ -79,21 +79,31 @@ collections:
 
   - name: "about"
     label: "O nas"
-    folder: "content/about"
-    create: false
-    slug: "{{slug}}"
-    fields:
-      - { name: "title", label: "Tytuł", widget: "string" }
-      - { name: "body", label: "Treść sekcji 'O nas'", widget: "markdown" }
+    files:
+      - label: "O nas"
+        name: "about"
+        file: "content/about/about.md"
+        fields:
+          - { name: "title", label: "Tytuł", widget: "string" }
+          - {
+              name: "content",
+              label: "Treść sekcji 'Kontakt'",
+              widget: "markdown",
+            }
 
   - name: "contact"
     label: "Kontakt"
-    folder: "content/contact"
-    create: false
-    slug: "{{slug}}"
-    fields:
-      - { name: "title", label: "Tytuł", widget: "string" }
-      - { name: "body", label: "Treść sekcji 'Kontakt'", widget: "markdown" }
+    files:
+      - label: "Kontakt"
+        name: "contact"
+        file: "content/contact/contact.md"
+        fields:
+          - { name: "title", label: "Tytuł", widget: "string" }
+          - {
+              name: "content",
+              label: "Treść sekcji 'Kontakt'",
+              widget: "markdown",
+            }
 
   - name: "before-you-buy"
     label: "Zanim kupisz"

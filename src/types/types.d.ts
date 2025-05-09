@@ -1,7 +1,6 @@
 export type SimpleData = {
   title: string;
   content: string;
-  body: string;
   itemsPerPage?: string;
 };
 

@@ -5,6 +5,6 @@ images:
   - "/images/glowa.webp"
   - "/images/bok.webp"
   - "/images/deski.webp"
-body: >-
+content: >-
   W naszej hodowli z radością witamy na świecie nowy miot kociąt, które przyszły na świat zdrowe i pełne energii!
 ---
