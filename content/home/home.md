@@ -1,4 +1,5 @@
 ---
+mainImage: /images/glowa.webp
 section1Title: Nasza pasja do&nbsp;kotów brytyjskich
 section1Text: Bribella*PL to domowa hodowla kotów brytyjskich krótkowłosych.
   Kochamy ich&nbsp;spokojny temperament, pluszowe futerko i&nbsp;wyjątkowy

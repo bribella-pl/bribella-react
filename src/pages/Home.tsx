@@ -12,7 +12,7 @@ function Home() {
   return (
     <Layout>
       <ParallaxImage
-        imageUrl="/images/glowa.webp"
+        imageUrl={homeData.mainImage}
         alt="Majestatyczny kot brytyjski"
         title="Witamy w&nbsp;Bribella*PL"
       >
