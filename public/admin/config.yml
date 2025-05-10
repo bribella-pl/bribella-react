@@ -81,6 +81,33 @@ collections:
           field: { label: "Obrazek", name: "imageUrl", widget: "image" },
         }
 
+  - name: "tomcats"
+    label: "Kocury"
+    folder: "content/cats/tomcat"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Tytuł", widget: "string" }
+      - { name: "content", label: "Treść sekcji 'Kocury'", widget: "markdown" }
+      - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+
+  - name: "tomcats-posts"
+    label: "Kocury - wpisy"
+    folder: "content/cats/tomcats"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: "date", label: "Data urodzenia", widget: "date" }
+      - { name: "name", label: "Imię kocura", widget: "string" }
+      - { name: "content", label: "Opis", widget: "markdown" }
+      - {
+          name: "images",
+          label: "Zdjęcia",
+          widget: "list",
+          allow_add: true,
+          field: { label: "Obrazek", name: "imageUrl", widget: "image" },
+        }
+
   - name: "about"
     label: "O nas"
     files:

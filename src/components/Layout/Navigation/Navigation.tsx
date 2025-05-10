@@ -43,8 +43,8 @@ function Navigation() {
       >
         <NavItem to="/" label="Strona główna" />
         <NavItem to="/aktualnosci" label="Aktualności" />
-        {/* <NavItem to="/kocieta" label="Kocięta" />
-        <NavItem to="/koty" label="Koty" /> */}
+        {/* <NavItem to="/kocieta" label="Kocięta" />*/}
+        <NavItem to="/kocury" label="Kocury" />
         <NavItem to="/zanim-kupisz" label="Zanim kupisz" />
         <NavItem to="/o-nas" label="O nas" />
         <NavItem to="/kontakt" label="Kontakt" />
