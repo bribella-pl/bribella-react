@@ -9,6 +9,6 @@ content: >-
   * e﻿-mail: **hodowla@bribella.pl**.
 
 
-  Z﻿achęcamy również do odwiedzenia naszego <a href="https://www.facebook.com/BribellaPL" target="_blank">fanpage'a</a>.
+  Z﻿achęcamy również do odwiedzenia naszego <a href="https://www.facebook.com/BribellaPL" target="_blank" class="orange-link">fanpage'a</a>.
 mainImageUrl: /images/glowa.webp
 ---

@@ -86,11 +86,6 @@ h3 {
   text-align: center;
 }
 
-ul {
-  list-style: inside;
-  margin: 0.75rem 0;
-}
-
-a {
+.orange-link {
   color: var(--color-bribella-orange);
 }
