@@ -9,7 +9,7 @@ function Contact() {
   return (
     <Layout>
       <ParallaxImage
-        imageUrl="/images/glowa.webp"
+        imageUrl={data?.mainImageUrl}
         alt="Majestatyczny kot brytyjski"
         title={data?.title}
       ></ParallaxImage>

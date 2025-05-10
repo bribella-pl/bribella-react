@@ -1,5 +1,6 @@
 ---
 title: Zanim kupisz
+mainImageUrl: /images/glowa.webp
 content: >-
   ## Przemyśl to
 

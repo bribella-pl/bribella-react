@@ -53,7 +53,7 @@ function News() {
   return (
     <Layout>
       <ParallaxImage
-        imageUrl="/images/drapak2.webp"
+        imageUrl={newsData?.mainImageUrl}
         alt="Majestatyczny kot brytyjski"
         title={newsData?.title}
       ></ParallaxImage>
