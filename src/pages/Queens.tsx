@@ -33,7 +33,7 @@ function Queens() {
                 className="text-bribella-blue text-left pl-4 lg:p-10 pb-1"
               />
               <div className="text-bribella-blue/60 p-4 lg:pl-10 lg:py-0 mb-0 text-left">
-                Urodzony {formatDate(cat.date)} roku.
+                Urodzona {formatDate(cat.date)} roku.
               </div>
               <div
                 className="text-md lg:text-lg leading-relaxed text-left p-4 lg:p-10"
