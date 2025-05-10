@@ -5,10 +5,18 @@ export type SimpleData = {
   itemsPerPage?: string;
 };
 
+export type Cat = {
+  date: string;
+  name: string;
+  content: string;
+  images: string[];
+  litter?: string;
+};
+
 export type NewsData = {
   date: string;
   title: string;
-  body: string;
+  content: string;
   images: string[];
 };
 
