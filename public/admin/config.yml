@@ -83,13 +83,18 @@ collections:
 
   - name: "tomcats"
     label: "Kocury"
-    folder: "content/cats/tomcat"
-    create: false
-    slug: "{{slug}}"
-    fields:
-      - { name: "title", label: "Tytuł", widget: "string" }
-      - { name: "content", label: "Treść sekcji 'Kocury'", widget: "markdown" }
-      - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+    files:
+      - label: "Kocury"
+        name: "tomcats-posts"
+        file: "content/cats/tomcat.md"
+        fields:
+          - { name: "title", label: "Tytuł", widget: "string" }
+          - {
+              name: "content",
+              label: "Treść sekcji 'Kocury'",
+              widget: "markdown",
+            }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
 
   - name: "tomcats-posts"
     label: "Kocury - wpisy"
@@ -121,7 +126,7 @@ collections:
               label: "Treść sekcji 'Kontakt'",
               widget: "markdown",
             }
-      - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
 
   - name: "contact"
     label: "Kontakt"
@@ -136,7 +141,7 @@ collections:
               label: "Treść sekcji 'Kontakt'",
               widget: "markdown",
             }
-      - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
 
   - name: "before-you-buy"
     label: "Zanim kupisz"
@@ -151,7 +156,7 @@ collections:
               label: "Treść sekcji 'Zanim kupisz'",
               widget: "markdown",
             }
-      - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
 
   - name: "page-not-found"
     label: "Strona nie znaleziona"
@@ -166,4 +171,4 @@ collections:
               label: "Treść sekcji 'Strina nie znaleziona'",
               widget: "markdown",
             }
-      - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
