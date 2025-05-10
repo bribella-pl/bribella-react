@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-//import matter from "gray-matter";
 import Home from "./pages/Home";
 import News from "./pages/News";
 import Kittens from "./pages/Kittens";
@@ -8,19 +7,9 @@ import BeforeYouBuy from "./pages/BeforeYouBuy";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
+import Queens from "./pages/Queens";
 
 function App() {
-  // fetch("/content/koty/mruczek.md")
-  //   .then((response) => {
-  //     console.log(response);
-  //     return response.text();
-  //   })
-  //   .then((text) => {
-  //     const content = matter(text);
-  //     console.log(content);
-  //     console.log(content.data);
-  //   });
-
   return (
     <BrowserRouter>
       <Routes>
@@ -28,6 +17,7 @@ function App() {
         <Route path="/aktualnosci" element={<News />}></Route>
         <Route path="/kocieta" element={<Kittens />}></Route>
         <Route path="/kocury" element={<Studs />}></Route>
+        <Route path="/kotki" element={<Queens />}></Route>
         <Route path="/zanim-kupisz" element={<BeforeYouBuy />}></Route>
         <Route path="/o-nas" element={<About />}></Route>
         <Route path="/kontakt" element={<Contact />}></Route>
