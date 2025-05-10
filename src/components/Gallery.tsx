@@ -100,10 +100,10 @@ function Gallery({ images }: GalleryProps) {
   }, []);
 
   return (
-    <div className="w-full text-bribella-blue/75 m-4 mt-10">
+    <div className="w-auto text-bribella-blue/75 m-4 mt-10">
       {/* Desktop navigation */}
       <div className="relative hidden md:flex md:flex-row md:items-center md:justify-center">
-        {!isModalOpen && (
+        {!isModalOpen && images.length > 1 && (
           <button
             onClick={handlePrev}
             className="bg-transparent p-10 cursor-pointer hover:text-bribella-orange transition-colors duration-300 ease-in-out z-10"
@@ -119,7 +119,7 @@ function Gallery({ images }: GalleryProps) {
             onClick={() => setIsModalOpen(true)}
           />
         </div>
-        {!isModalOpen && (
+        {!isModalOpen && images.length > 1 && (
           <button
             onClick={handleNext}
             className="bg-transparent p-10 cursor-pointer hover:text-bribella-orange transition-colors duration-300 ease-in-out z-10"
@@ -132,7 +132,9 @@ function Gallery({ images }: GalleryProps) {
       {/* Mobile swiper */}
       <div
         ref={mobileContainerRef}
-        className="flex md:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide"
+        className={`${
+          images.length > 1 ? "" : "justify-center"
+        } flex md:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide`}
       >
         {images.map((image, index) => (
           <div key={index} className="mx-2 snap-center flex-shrink-0">
