@@ -81,12 +81,12 @@ collections:
           field: { label: "Obrazek", name: "imageUrl", widget: "image" },
         }
 
-  - name: "tomcats"
+  - name: "studs"
     label: "Kocury"
     files:
       - label: "Kocury"
-        name: "tomcats-posts"
-        file: "content/cats/tomcat.md"
+        name: "studs-posts"
+        file: "content/cats/studs.md"
         fields:
           - { name: "title", label: "Tytuł", widget: "string" }
           - {
@@ -96,9 +96,9 @@ collections:
             }
           - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
 
-  - name: "tomcats-posts"
+  - name: "studs-posts"
     label: "Kocury - wpisy"
-    folder: "content/cats/tomcats"
+    folder: "content/cats/studs"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
     fields:

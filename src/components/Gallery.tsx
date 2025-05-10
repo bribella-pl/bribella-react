@@ -152,16 +152,18 @@ function Gallery({ images }: GalleryProps) {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center mt-4 gap-2 p-6">
-        {images.map((_, index) => (
-          <span
-            key={index}
-            className={`w-2 h-2 rounded-full ${
-              index === currentIndex ? "bg-bribella-blue" : "bg-bribella-grey"
-            }`}
-          ></span>
-        ))}
-      </div>
+      {images.length > 1 && (
+        <div className="flex justify-center mt-4 gap-2 p-6">
+          {images.map((_, index) => (
+            <span
+              key={index}
+              className={`w-2 h-2 rounded-full ${
+                index === currentIndex ? "bg-bribella-blue" : "bg-bribella-grey"
+              }`}
+            ></span>
+          ))}
+        </div>
+      )}
 
       {/* Modal */}
       {isModalOpen && (
