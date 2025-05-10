@@ -7,6 +7,7 @@ import { formatDate } from "../utils/dateParser";
 import Gallery from "../components/Gallery";
 import { loadNewsPage } from "../utils/loaders/newsLoaders/loadNewsPage";
 import { loadAllNews } from "../utils/loaders/newsLoaders/loadAllNews";
+import { marked } from "marked";
 
 function News() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -78,9 +79,12 @@ function News() {
                 {formatDate(news.date)}
               </div>
 
-              <div className="text-md lg:text-lg leading-relaxed text-left p-4 lg:p-10">
-                {news.body}
-              </div>
+              <div
+                className="text-md lg:text-lg leading-relaxed text-left p-4 lg:p-10"
+                dangerouslySetInnerHTML={{
+                  __html: news?.content ? marked(news.content) : "",
+                }}
+              ></div>
               <Gallery images={news.images} />
             </div>
           ))}
