@@ -10,7 +10,7 @@ collections:
     label: "Cytaty"
     folder: "content/quotes"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.author}}-{{year}}-{{month}}-{{day}}"
     fields:
       - { label: "Autor", name: "author", widget: "string" }
       - { label: "Cytat", name: "quote", widget: "text" }
@@ -68,7 +68,7 @@ collections:
     label: "Aktualności - wpisy"
     folder: "content/news"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{fields.title}}"
     fields:
       - { name: "date", label: "Data", widget: "datetime" }
       - { name: "title", label: "Tytuł wpisu", widget: "string" }
@@ -100,7 +100,7 @@ collections:
     label: "Kocury - wpisy"
     folder: "content/cats/tomcats"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
     fields:
       - { name: "date", label: "Data urodzenia", widget: "date" }
       - { name: "name", label: "Imię kocura", widget: "string" }
