@@ -22,11 +22,12 @@ function Section(props: SectionProps) {
 
   return (
     <section
-      className="
+      className={`
         w-[95%] lg:w-[75%] 
         mx-auto my-10 px-2 lg:px-4
         text-bribella-black 
-        flex flex-col lg:flex-row items-center"
+        flex flex-col ${image !== null ? "lg:flex-row" : ""} 
+        items-center`}
     >
       {props.imageFirst && image}
       <div
