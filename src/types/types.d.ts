@@ -12,13 +12,13 @@ export type NewsData = {
 };
 
 export type HomeData = {
-  mainImage: string;
+  mainImageUrl: string;
   section1Title: string;
   section1Text: string;
-  secondImage: string;
+  secondImageUrl: string;
   section2Title: string;
   section2Text: string;
-  thirdImage: string;
+  thirdImageUrl: string;
 };
 
 export type Quote = {

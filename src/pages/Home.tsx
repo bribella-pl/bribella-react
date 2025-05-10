@@ -12,7 +12,7 @@ function Home() {
   return (
     <Layout>
       <ParallaxImage
-        imageUrl={homeData.mainImage}
+        imageUrl={homeData.mainImageUrl}
         alt="Majestatyczny kot brytyjski"
         title="Witamy w&nbsp;Bribella*PL"
       >
@@ -28,7 +28,7 @@ function Home() {
       />
 
       <ParallaxImage
-        imageUrl={homeData.secondImage}
+        imageUrl={homeData.secondImageUrl}
         alt="Kot brytyjski na drapaku"
       ></ParallaxImage>
 
@@ -43,7 +43,7 @@ function Home() {
       />
 
       <ParallaxImage
-        imageUrl={homeData.thirdImage}
+        imageUrl={homeData.thirdImageUrl}
         alt="Puchary i medale"
       ></ParallaxImage>
 
