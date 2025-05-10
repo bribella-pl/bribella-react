@@ -28,6 +28,12 @@ export type HomeData = {
   section2Title: string;
   section2Text: string;
   thirdImageUrl: string;
+  section3Title: string;
+  section3Text: string;
+  fourthImageUrl: string;
+  section4Title: string;
+  section4Text: string;
+  fifthImageUrl: string;
 };
 
 export type Quote = {

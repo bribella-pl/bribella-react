@@ -44,6 +44,28 @@ collections:
           widget: "string",
         }
       - { label: "Trzecie zdjęcie", name: "thirdImageUrl", widget: "image" }
+      - {
+          label: "Sekcja trzecia - tytuł",
+          name: "section3Title",
+          widget: "string",
+        }
+      - {
+          label: "Sekcja trzecia - treść",
+          name: "section3Text",
+          widget: "string",
+        }
+      - { label: "Czwarte zdjęcie", name: "fourthImageUrl", widget: "image" }
+      - {
+          label: "Sekcja czwarta - tytuł",
+          name: "section4Title",
+          widget: "string",
+        }
+      - {
+          label: "Sekcja czwarta - treść",
+          name: "section4Text",
+          widget: "string",
+        }
+      - { label: "Piąte zdjęcie", name: "fifthImageUrl", widget: "image" }
 
   - name: "news"
     label: "Aktualności"

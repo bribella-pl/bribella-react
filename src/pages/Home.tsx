@@ -47,6 +47,35 @@ function Home() {
         alt="Puchary i medale"
       ></ParallaxImage>
 
+      {/* Opcjonalna sekcja */}
+      {homeData?.section3Title && homeData?.section3Text && (
+        <Section
+          title={homeData?.section3Title}
+          text={homeData?.section3Text}
+          className="shadow-xl"
+        />
+      )}
+      {homeData.fourthImageUrl && (
+        <ParallaxImage
+          imageUrl={homeData.fourthImageUrl}
+          alt="Majestatczny kocur"
+        ></ParallaxImage>
+      )}
+
+      {/* Opcjonalna sekcja */}
+      {homeData?.section4Title && homeData?.section4Text && (
+        <Section
+          title={homeData?.section4Title}
+          text={homeData?.section4Text}
+          className="shadow-xl"
+        />
+      )}
+      {homeData.fifthImageUrl && (
+        <ParallaxImage
+          imageUrl={homeData.fifthImageUrl}
+          alt="Majestatyczny kocur"
+        ></ParallaxImage>
+      )}
       <WhatsUp />
     </Layout>
   );
