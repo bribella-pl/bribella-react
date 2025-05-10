@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import { formatDate } from "../utils/dateParser";
 import Gallery from "../components/Gallery";
 import { marked } from "marked";
-import { loadQueensPage } from "../utils/loaders/catsLoaders/loadSQueensPage";
+import { loadQueensPage } from "../utils/loaders/catsLoaders/loadQueensPage";
 import { loadAllQueens } from "../utils/loaders/catsLoaders/loadAllQueens";
 
 function Queens() {
