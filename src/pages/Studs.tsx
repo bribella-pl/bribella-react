@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import Layout from "../components/Layout/Layout";
 import ParallaxImage from "../components/ParallaxImage";
 import Section from "../components/Section";
@@ -8,8 +8,13 @@ import Header from "../components/Header";
 import { formatDate } from "../utils/dateParser";
 import Gallery from "../components/Gallery";
 import { marked } from "marked";
+import CheckOutOurCats from "../components/CheckOutOurCats";
 
 function Studs() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const data = useMemo(() => loadStudsPage(), []);
   const studs = useMemo(() => loadAllStuds(), []);
 
@@ -45,6 +50,9 @@ function Studs() {
             </div>
           ))}
       </div>
+
+      <CheckOutOurCats type="kotki" />
+      <CheckOutOurCats type="kocieta" />
     </Layout>
   );
 }

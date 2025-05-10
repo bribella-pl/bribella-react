@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import Layout from "../components/Layout/Layout";
 import ParallaxImage from "../components/ParallaxImage";
 import Section from "../components/Section";
@@ -8,10 +8,15 @@ import Gallery from "../components/Gallery";
 import { marked } from "marked";
 import { loadQueensPage } from "../utils/loaders/catsLoaders/loadQueensPage";
 import { loadAllQueens } from "../utils/loaders/catsLoaders/loadAllQueens";
+import CheckOutOurCats from "../components/CheckOutOurCats";
 
 function Queens() {
   const data = useMemo(() => loadQueensPage(), []);
   const studs = useMemo(() => loadAllQueens(), []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Layout>
@@ -45,6 +50,9 @@ function Queens() {
             </div>
           ))}
       </div>
+
+      <CheckOutOurCats type="kocury" />
+      <CheckOutOurCats type="kocieta" />
     </Layout>
   );
 }

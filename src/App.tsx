@@ -18,6 +18,7 @@ function App() {
         <Route path="/kocieta" element={<Kittens />}></Route>
         <Route path="/kocury" element={<Studs />}></Route>
         <Route path="/kotki" element={<Queens />}></Route>
+        <Route path="/kocieta" element={<Kittens />}></Route>
         <Route path="/zanim-kupisz" element={<BeforeYouBuy />}></Route>
         <Route path="/o-nas" element={<About />}></Route>
         <Route path="/kontakt" element={<Contact />}></Route>

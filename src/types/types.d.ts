@@ -1,6 +1,6 @@
 export type SimpleData = {
   title: string;
-  content: string;
+  content?: string;
   mainImageUrl: string;
   itemsPerPage?: string;
 };

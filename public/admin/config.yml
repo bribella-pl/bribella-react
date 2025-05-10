@@ -145,6 +145,38 @@ collections:
           field: { label: "Obrazek", name: "imageUrl", widget: "image" },
         }
 
+  - name: "kittens"
+    label: "Kocięta"
+    files:
+      - label: "Kocięta"
+        name: "kittens"
+        file: "content/cats/kittens.md"
+        fields:
+          - { name: "title", label: "Tytuł", widget: "string" }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+
+  - name: "kittens-posts"
+    label: "Kocięta - wpisy"
+    folder: "content/cats/kittens"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
+    fields:
+      - { name: "date", label: "Data urodzenia", widget: "date" }
+      - { name: "name", label: "Imię kocięcia", widget: "string" }
+      - { name: "content", label: "Opis", widget: "markdown" }
+      - {
+          name: "litter",
+          label: "Nazwa miotu (jeśli są inne mioty nazwa musi się zgadzać z pozostałymi)",
+          widget: "string",
+        }
+      - {
+          name: "images",
+          label: "Zdjęcia",
+          widget: "list",
+          allow_add: true,
+          field: { label: "Obrazek", name: "imageUrl", widget: "image" },
+        }
+
   - name: "about"
     label: "O nas"
     files:
