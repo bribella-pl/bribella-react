@@ -1,6 +1,9 @@
 ---
 title: Kontakt
+content: |-
+  Z﻿apraszamy do kontaktu przez
+
+  * t﻿elefon: 690 494 436 lub
+  * e﻿-mail: hodowla@bribella.pl
 mainImageUrl: /images/glowa.webp
-content: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet nunc sit amet diam consectetur euismod. Phasellus viverra semper commodo. Ut sed magna felis. In nisl felis, rhoncus ornare sodales vitae, tincidunt pharetra augue.
 ---
