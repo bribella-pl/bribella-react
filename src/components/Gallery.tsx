@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import ImageModal from "./ImageModal";
 import { useModalStore } from "../context/modalStore";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type GalleryProps = {
   images: string[];
@@ -108,7 +109,7 @@ function Gallery({ images }: GalleryProps) {
             onClick={handlePrev}
             className="bg-transparent p-10 cursor-pointer hover:text-bribella-orange transition-colors duration-300 ease-in-out z-10"
           >
-            ◀
+            <ChevronLeft />
           </button>
         )}
         <div className="overflow-hidden flex justify-center items-center h-[70vh] max-w-[90vh]">
@@ -124,7 +125,7 @@ function Gallery({ images }: GalleryProps) {
             onClick={handleNext}
             className="bg-transparent p-10 cursor-pointer hover:text-bribella-orange transition-colors duration-300 ease-in-out z-10"
           >
-            ▶
+            <ChevronRight />
           </button>
         )}
       </div>
