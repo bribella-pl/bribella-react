@@ -124,7 +124,7 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
     fields:
-      - { name: "date", label: "Data urodzenia", widget: "date" }
+      - { name: "date", label: "Data urodzenia", widget: "datetime" }
       - { name: "name", label: "Imię kocura", widget: "string" }
       - { name: "content", label: "Opis", widget: "markdown" }
       - {
@@ -156,7 +156,7 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
     fields:
-      - { name: "date", label: "Data urodzenia", widget: "date" }
+      - { name: "date", label: "Data urodzenia", widget: "datetime" }
       - { name: "name", label: "Imię kotki", widget: "string" }
       - { name: "content", label: "Opis", widget: "markdown" }
       - {
@@ -183,7 +183,7 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
     fields:
-      - { name: "date", label: "Data urodzenia", widget: "date" }
+      - { name: "date", label: "Data urodzenia", widget: "datetime" }
       - { name: "name", label: "Imię kocięcia", widget: "string" }
       - { name: "content", label: "Opis", widget: "markdown" }
       - {
