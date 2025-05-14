@@ -1,32 +1,37 @@
 import { ReactNode } from "react";
 import { Parallax } from "react-parallax";
 import Header from "./Header";
+import { useDeviceStore } from "../context/deviceStore";
 
 export type ParallaxImageProps = {
   imageUrl: string;
   alt: string;
   title?: string | null;
   children?: ReactNode | null;
+  mainImage?: boolean;
 };
 
 function ParallaxImage(props: ParallaxImageProps) {
+  const { isMobile } = useDeviceStore();
+
   return (
     <Parallax
       bgImage={props.imageUrl}
-      strength={300}
+      strength={isMobile ? 100 : 300}
+      blur={{ min: 0, max: 0 }}
       bgImageAlt={props.alt}
       bgClassName="parallax-bg"
       bgImageStyle={{
         objectFit: "cover",
         width: "100%",
-        height: "100%",
+        height: `${props.mainImage ? "100%" : "75%"}`,
       }}
     >
       <section
-        className="
+        className={`
           relative 
-          h-[85vh] 
-          flex flex-col justify-between"
+          ${props.mainImage ? "h-[85vh]" : "h-[55vh]"} 
+          flex flex-col justify-between`}
       >
         {props.children ?? <div></div>}
         {props.title && (

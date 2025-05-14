@@ -15,6 +15,7 @@ function Home() {
         imageUrl={homeData.mainImageUrl}
         alt="Majestatyczny kot brytyjski"
         title="Witamy w&nbsp;Bribella*PL"
+        mainImage
       >
         <RandomQuote />
       </ParallaxImage>
@@ -30,6 +31,7 @@ function Home() {
       <ParallaxImage
         imageUrl={homeData.secondImageUrl}
         alt="Kot brytyjski na drapaku"
+        mainImage
       ></ParallaxImage>
 
       {/* Partnerstwo z WCF */}
@@ -45,6 +47,7 @@ function Home() {
       <ParallaxImage
         imageUrl={homeData.thirdImageUrl}
         alt="Puchary i medale"
+        mainImage
       ></ParallaxImage>
 
       {/* Opcjonalna sekcja */}
@@ -59,6 +62,7 @@ function Home() {
         <ParallaxImage
           imageUrl={homeData.fourthImageUrl}
           alt="Majestatczny kocur"
+          mainImage
         ></ParallaxImage>
       )}
 
@@ -74,6 +78,7 @@ function Home() {
         <ParallaxImage
           imageUrl={homeData.fifthImageUrl}
           alt="Majestatyczny kocur"
+          mainImage
         ></ParallaxImage>
       )}
       <WhatsUp />
