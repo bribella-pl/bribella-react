@@ -1,0 +1,260 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: "quotes"
+    label: "Cytaty"
+    folder: "content/quotes"
+    create: true
+    slug: "{{fields.author}}-{{year}}-{{month}}-{{day}}"
+    fields:
+      - { label: "Autor", name: "author", widget: "string" }
+      - { label: "Cytat", name: "quote", widget: "text" }
+
+  - name: "home"
+    label: "Strona główna"
+    folder: "content/home"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+      - {
+          label: "Sekcja pierwsza - tytuł",
+          name: "section1Title",
+          widget: "string",
+        }
+      - {
+          label: "Sekcja pierwsza - treść",
+          name: "section1Text",
+          widget: "string",
+        }
+      - { label: "Drugie zdjęcie", name: "secondImageUrl", widget: "image" }
+      - {
+          label: "Sekcja druga - tytuł",
+          name: "section2Title",
+          widget: "string",
+        }
+      - {
+          label: "Sekcja druga - treść",
+          name: "section2Text",
+          widget: "string",
+        }
+      - { label: "Trzecie zdjęcie", name: "thirdImageUrl", widget: "image" }
+      # - {
+      #     label: "Sekcja trzecia - tytuł",
+      #     name: "section3Title",
+      #     widget: "string",
+      #   }
+      # - {
+      #     label: "Sekcja trzecia - treść",
+      #     name: "section3Text",
+      #     widget: "string",
+      #   }
+      # - { label: "Czwarte zdjęcie", name: "fourthImageUrl", widget: "image" }
+      # - {
+      #     label: "Sekcja czwarta - tytuł",
+      #     name: "section4Title",
+      #     widget: "string",
+      #   }
+      # - {
+      #     label: "Sekcja czwarta - treść",
+      #     name: "section4Text",
+      #     widget: "string",
+      #   }
+      # - { label: "Piąte zdjęcie", name: "fifthImageUrl", widget: "image" }
+
+  - name: "news"
+    label: "Aktualności"
+    folder: "content/news/simple"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Tytuł", widget: "string" }
+      - {
+          name: "itemsPerPage",
+          label: "Ilość wpisów na jednej stronie",
+          widget: "string",
+        }
+      - {
+          name: "content",
+          label: "Treść sekcji 'Aktualności'",
+          widget: "markdown",
+        }
+      - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+
+  - name: "post"
+    label: "Aktualności - wpisy"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{fields.title}}"
+    fields:
+      - { name: "date", label: "Data", widget: "datetime" }
+      - { name: "title", label: "Tytuł wpisu", widget: "string" }
+      - { name: "content", label: "Treść wpisu", widget: "markdown" }
+      - {
+          name: "images",
+          label: "Zdjęcia",
+          widget: "list",
+          allow_add: true,
+          field: { label: "Obrazek", name: "imageUrl", widget: "image" },
+        }
+
+  - name: "studs"
+    label: "Kocury"
+    files:
+      - label: "Kocury"
+        name: "studs"
+        file: "content/cats/studs.md"
+        fields:
+          - { name: "title", label: "Tytuł", widget: "string" }
+          - {
+              name: "content",
+              label: "Treść sekcji 'Kocury'",
+              widget: "markdown",
+            }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+
+  - name: "studs-posts"
+    label: "Kocury - wpisy"
+    folder: "content/cats/studs"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
+    fields:
+      - { name: "date", label: "Data urodzenia", widget: "datetime" }
+      - { name: "name", label: "Imię kocura", widget: "string" }
+      - { name: "content", label: "Opis", widget: "markdown" }
+      - {
+          name: "images",
+          label: "Zdjęcia",
+          widget: "list",
+          allow_add: true,
+          field: { label: "Obrazek", name: "imageUrl", widget: "image" },
+        }
+
+  - name: "queens"
+    label: "Kotki"
+    files:
+      - label: "Kotki"
+        name: "queens"
+        file: "content/cats/queens.md"
+        fields:
+          - { name: "title", label: "Tytuł", widget: "string" }
+          - {
+              name: "content",
+              label: "Treść sekcji 'Kotki'",
+              widget: "markdown",
+            }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+
+  - name: "queens-posts"
+    label: "Kotki - wpisy"
+    folder: "content/cats/queens"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
+    fields:
+      - { name: "date", label: "Data urodzenia", widget: "datetime" }
+      - { name: "name", label: "Imię kotki", widget: "string" }
+      - { name: "content", label: "Opis", widget: "markdown" }
+      - {
+          name: "images",
+          label: "Zdjęcia",
+          widget: "list",
+          allow_add: true,
+          field: { label: "Obrazek", name: "imageUrl", widget: "image" },
+        }
+
+  - name: "kittens"
+    label: "Kocięta"
+    files:
+      - label: "Kocięta"
+        name: "kittens"
+        file: "content/cats/kittens.md"
+        fields:
+          - { name: "title", label: "Tytuł", widget: "string" }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+
+  - name: "kittens-posts"
+    label: "Kocięta - wpisy"
+    folder: "content/cats/kittens"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
+    fields:
+      - { name: "date", label: "Data urodzenia", widget: "datetime" }
+      - { name: "name", label: "Imię kocięcia", widget: "string" }
+      - { name: "content", label: "Opis", widget: "markdown" }
+      - {
+          name: "litter",
+          label: "Nazwa miotu (jeśli są inne mioty nazwa musi się zgadzać z pozostałymi)",
+          widget: "string",
+        }
+      - {
+          name: "images",
+          label: "Zdjęcia",
+          widget: "list",
+          allow_add: true,
+          field: { label: "Obrazek", name: "imageUrl", widget: "image" },
+        }
+
+  - name: "about"
+    label: "O nas"
+    files:
+      - label: "O nas"
+        name: "about"
+        file: "content/about/about.md"
+        fields:
+          - { name: "title", label: "Tytuł", widget: "string" }
+          - {
+              name: "content",
+              label: "Treść sekcji 'Kontakt'",
+              widget: "markdown",
+            }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+
+  - name: "contact"
+    label: "Kontakt"
+    files:
+      - label: "Kontakt"
+        name: "contact"
+        file: "content/contact/contact.md"
+        fields:
+          - { name: "title", label: "Tytuł", widget: "string" }
+          - {
+              name: "content",
+              label: "Treść sekcji 'Kontakt'",
+              widget: "markdown",
+            }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+
+  - name: "before-you-buy"
+    label: "Zanim kupisz"
+    files:
+      - label: "Zanim kupisz"
+        name: "before-you-buy"
+        file: "content/before-you-buy/before-you-buy.md"
+        fields:
+          - { name: "title", label: "Tytuł", widget: "string" }
+          - {
+              name: "content",
+              label: "Treść sekcji 'Zanim kupisz'",
+              widget: "markdown",
+            }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+
+  - name: "page-not-found"
+    label: "Strona nie znaleziona"
+    files:
+      - label: "Strona nie znaleziona"
+        name: "page-not-found"
+        file: "content/not-found/not-found.md"
+        fields:
+          - { name: "title", label: "Tytuł", widget: "string" }
+          - {
+              name: "content",
+              label: "Treść sekcji 'Strina nie znaleziona'",
+              widget: "markdown",
+            }
+          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }

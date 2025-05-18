@@ -1,0 +1,15 @@
+{
+  "name": "Bribella*PL",
+  "short_name": "Bribella",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f69103",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "type": "image/png",
+      "sizes": "393x393"
+    }
+  ]
+}
