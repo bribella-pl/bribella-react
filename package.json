@@ -9,7 +9,6 @@
     "build:types": "tsc --build",
     "dev": "cross-env TEST_ENV=true vite",
     "build": "npm run clean && npm run build:types && vite build",
-    "deploy": "npm run clean && npm run build:types && vite build  && git config user.name 'github-actions[bot]' && git config user.email '41898282+github-actions[bot]@users.noreply.github.com' && gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview"
   },
