@@ -12,6 +12,7 @@ export default defineConfig(() => {
         }),
     ];
     return {
+        base: "/bribella-react",
         plugins,
         resolve: {
             alias: {

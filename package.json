@@ -1,5 +1,6 @@
 {
   "name": "bribella-react",
+  "homepage": "https://bribella-pl.github.io/bribella-react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,6 +9,7 @@
     "build:types": "tsc --build",
     "dev": "cross-env TEST_ENV=true vite",
     "build": "npm run clean && npm run build:types && vite build",
+    "deploy": "npm run clean && npm run build:types && vite build && gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -29,6 +31,7 @@
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "gh-pages": "^6.3.0",
     "globals": "^15.15.0",
     "he": "^1.2.0",
     "lucide-react": "^0.486.0",
