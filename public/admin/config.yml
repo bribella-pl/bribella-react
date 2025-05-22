@@ -9,7 +9,7 @@ media_folder: public/images
 public_folder: /images
 
 collections:
-  - name: "quotes"
+  - name: quotesSection
     label: "Cytaty"
     folder: "content/quotes"
     create: true
@@ -18,246 +18,168 @@ collections:
       - { label: "Autor", name: "author", widget: "string" }
       - { label: "Cytat", name: "quote", widget: "text" }
 
-  - name: "home"
+  - name: homeSection
     label: "Strona główna"
     folder: "content/home"
     create: false
     slug: "{{slug}}"
     fields:
       - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
-      - {
-          label: "Sekcja pierwsza - tytuł",
-          name: "section1Title",
-          widget: "string",
-        }
-      - {
-          label: "Sekcja pierwsza - treść",
-          name: "section1Text",
-          widget: "string",
-        }
+      - { label: "Sekcja 1 – tytuł", name: "section1Title", widget: "string" }
+      - { label: "Sekcja 1 – treść", name: "section1Text", widget: "string" }
       - { label: "Drugie zdjęcie", name: "secondImageUrl", widget: "image" }
-      - {
-          label: "Sekcja druga - tytuł",
-          name: "section2Title",
-          widget: "string",
-        }
-      - {
-          label: "Sekcja druga - treść",
-          name: "section2Text",
-          widget: "string",
-        }
+      - { label: "Sekcja 2 – tytuł", name: "section2Title", widget: "string" }
+      - { label: "Sekcja 2 – treść", name: "section2Text", widget: "string" }
       - { label: "Trzecie zdjęcie", name: "thirdImageUrl", widget: "image" }
-      # - {
-      #     label: "Sekcja trzecia - tytuł",
-      #     name: "section3Title",
-      #     widget: "string",
-      #   }
-      # - {
-      #     label: "Sekcja trzecia - treść",
-      #     name: "section3Text",
-      #     widget: "string",
-      #   }
-      # - { label: "Czwarte zdjęcie", name: "fourthImageUrl", widget: "image" }
-      # - {
-      #     label: "Sekcja czwarta - tytuł",
-      #     name: "section4Title",
-      #     widget: "string",
-      #   }
-      # - {
-      #     label: "Sekcja czwarta - treść",
-      #     name: "section4Text",
-      #     widget: "string",
-      #   }
-      # - { label: "Piąte zdjęcie", name: "fifthImageUrl", widget: "image" }
 
-  - name: "news"
+  - name: newsSection
     label: "Aktualności"
     folder: "content/news/simple"
     create: false
     slug: "{{slug}}"
     fields:
-      - { name: "title", label: "Tytuł", widget: "string" }
+      - { label: "Tytuł sekcji", name: "title", widget: "string" }
       - {
+          label: "Ilość wpisów na stronie",
           name: "itemsPerPage",
-          label: "Ilość wpisów na jednej stronie",
           widget: "string",
         }
-      - {
-          name: "content",
-          label: "Treść sekcji 'Aktualności'",
-          widget: "markdown",
-        }
+      - { label: "Treść sekcji", name: "content", widget: "markdown" }
       - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
 
-  - name: "post"
-    label: "Aktualności - wpisy"
+  - name: newsPosts
+    label: "Aktualności – wpisy"
     folder: "content/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{fields.title}}"
     fields:
-      - { name: "date", label: "Data", widget: "datetime" }
-      - { name: "title", label: "Tytuł wpisu", widget: "string" }
-      - { name: "content", label: "Treść wpisu", widget: "markdown" }
-      - {
-          name: "images",
-          label: "Zdjęcia",
-          widget: "list",
-          allow_add: true,
-          field: { label: "Obrazek", name: "imageUrl", widget: "image" },
-        }
+      - { label: "Data wpisu", name: "date", widget: "datetime" }
+      - { label: "Tytuł wpisu", name: "title", widget: "string" }
+      - { label: "Treść wpisu", name: "content", widget: "markdown" }
+      - name: images
+        label: "Zdjęcia"
+        widget: list
+        allow_add: true
+        field: { label: "Obrazek", name: "imageUrl", widget: "image" }
 
-  - name: "studs"
+  - name: studsSection
     label: "Kocury"
     files:
-      - label: "Kocury"
-        name: "studs-page"
+      - label: "Opis kocurów"
+        name: "studsPage"
         file: "content/cats/studs.md"
         fields:
-          - { name: "title", label: "Tytuł", widget: "string" }
-          - {
-              name: "content",
-              label: "Treść sekcji 'Kocury'",
-              widget: "markdown",
-            }
-          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+          - { label: "Tytuł", name: "title", widget: "string" }
+          - { label: "Treść", name: "content", widget: "markdown" }
+          - { label: "Zdjęcie główne", name: "mainImageUrl", widget: "image" }
 
-  - name: "studs-posts"
-    label: "Kocury - wpisy"
+  - name: studsPosts
+    label: "Kocury – wpisy"
     folder: "content/cats/studs"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
     fields:
-      - { name: "date", label: "Data urodzenia", widget: "datetime" }
-      - { name: "name", label: "Imię kocura", widget: "string" }
-      - { name: "content", label: "Opis", widget: "markdown" }
-      - {
-          name: "images",
-          label: "Zdjęcia",
-          widget: "list",
-          allow_add: true,
-          field: { label: "Obrazek", name: "imageUrl", widget: "image" },
-        }
+      - { label: "Data ur.", name: "date", widget: "datetime" }
+      - { label: "Imię", name: "name", widget: "string" }
+      - { label: "Opis", name: "content", widget: "markdown" }
+      - name: images
+        label: "Zdjęcia"
+        widget: list
+        allow_add: true
+        field: { label: "Obrazek", name: "imageUrl", widget: "image" }
 
-  - name: "queens"
+  - name: queensSection
     label: "Kotki"
     files:
-      - label: "Kotki"
-        name: "queens-page"
+      - label: "Opis kotek"
+        name: "queensPage"
         file: "content/cats/queens.md"
         fields:
-          - { name: "title", label: "Tytuł", widget: "string" }
-          - {
-              name: "content",
-              label: "Treść sekcji 'Kotki'",
-              widget: "markdown",
-            }
-          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+          - { label: "Tytuł", name: "title", widget: "string" }
+          - { label: "Treść", name: "content", widget: "markdown" }
+          - { label: "Zdjęcie główne", name: "mainImageUrl", widget: "image" }
 
-  - name: "queens-posts"
-    label: "Kotki - wpisy"
+  - name: queensPosts
+    label: "Kotki – wpisy"
     folder: "content/cats/queens"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
     fields:
-      - { name: "date", label: "Data urodzenia", widget: "datetime" }
-      - { name: "name", label: "Imię kotki", widget: "string" }
-      - { name: "content", label: "Opis", widget: "markdown" }
-      - {
-          name: "images",
-          label: "Zdjęcia",
-          widget: "list",
-          allow_add: true,
-          field: { label: "Obrazek", name: "imageUrl", widget: "image" },
-        }
+      - { label: "Data ur.", name: "date", widget: "datetime" }
+      - { label: "Imię", name: "name", widget: "string" }
+      - { label: "Opis", name: "content", widget: "markdown" }
+      - name: images
+        label: "Zdjęcia"
+        widget: list
+        allow_add: true
+        field: { label: "Obrazek", name: "imageUrl", widget: "image" }
 
-  - name: "kittens"
+  - name: kittensSection
     label: "Kocięta"
     files:
-      - label: "Kocięta"
-        name: "kittens-page"
+      - label: "Opis kociąt"
+        name: "kittensPage"
         file: "content/cats/kittens.md"
         fields:
-          - { name: "title", label: "Tytuł", widget: "string" }
-          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+          - { label: "Tytuł", name: "title", widget: "string" }
+          - { label: "Zdjęcie główne", name: "mainImageUrl", widget: "image" }
 
-  - name: "kittens-posts"
-    label: "Kocięta - wpisy"
+  - name: kittensPosts
+    label: "Kocięta – wpisy"
     folder: "content/cats/kittens"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{fields.name}}"
     fields:
-      - { name: "date", label: "Data urodzenia", widget: "datetime" }
-      - { name: "name", label: "Imię kocięcia", widget: "string" }
-      - { name: "content", label: "Opis", widget: "markdown" }
-      - {
-          name: "litter",
-          label: "Nazwa miotu (jeśli są inne mioty nazwa musi się zgadzać z pozostałymi)",
-          widget: "string",
-        }
-      - {
-          name: "images",
-          label: "Zdjęcia",
-          widget: "list",
-          allow_add: true,
-          field: { label: "Obrazek", name: "imageUrl", widget: "image" },
-        }
+      - { label: "Data ur.", name: "date", widget: "datetime" }
+      - { label: "Imię", name: "name", widget: "string" }
+      - { label: "Opis", name: "content", widget: "markdown" }
+      - { label: "Miot", name: "litter", widget: "string" }
+      - name: images
+        label: "Zdjęcia"
+        widget: list
+        allow_add: true
+        field: { label: "Obrazek", name: "imageUrl", widget: "image" }
 
-  - name: "about"
+  - name: aboutSection
     label: "O nas"
     files:
-      - label: "O nas"
-        name: "about-page"
+      - label: "Strona O nas"
+        name: "aboutPage"
         file: "content/about/about.md"
         fields:
-          - { name: "title", label: "Tytuł", widget: "string" }
-          - {
-              name: "content",
-              label: "Treść sekcji 'Kontakt'",
-              widget: "markdown",
-            }
-          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+          - { label: "Tytuł", name: "title", widget: "string" }
+          - { label: "Treść", name: "content", widget: "markdown" }
+          - { label: "Zdjęcie główne", name: "mainImageUrl", widget: "image" }
 
-  - name: "contact"
+  - name: contactSection
     label: "Kontakt"
     files:
-      - label: "Kontakt"
-        name: "contact-page"
+      - label: "Strona Kontakt"
+        name: "contactPage"
         file: "content/contact/contact.md"
         fields:
-          - { name: "title", label: "Tytuł", widget: "string" }
-          - {
-              name: "content",
-              label: "Treść sekcji 'Kontakt'",
-              widget: "markdown",
-            }
-          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+          - { label: "Tytuł", name: "title", widget: "string" }
+          - { label: "Treść", name: "content", widget: "markdown" }
+          - { label: "Zdjęcie główne", name: "mainImageUrl", widget: "image" }
 
-  - name: "before-you-buy"
+  - name: beforeBuySection
     label: "Zanim kupisz"
     files:
-      - label: "Zanim kupisz"
-        name: "before-you-buy-page"
+      - label: "Strona Zanim kupisz"
+        name: "beforeBuyPage"
         file: "content/before-you-buy/before-you-buy.md"
         fields:
-          - { name: "title", label: "Tytuł", widget: "string" }
-          - {
-              name: "content",
-              label: "Treść sekcji 'Zanim kupisz'",
-              widget: "markdown",
-            }
-          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+          - { label: "Tytuł", name: "title", widget: "string" }
+          - { label: "Treść", name: "content", widget: "markdown" }
+          - { label: "Zdjęcie główne", name: "mainImageUrl", widget: "image" }
 
-  - name: "page-not-found"
-    label: "Strona nie znaleziona"
+  - name: notFoundSection
+    label: "404 Strona"
     files:
       - label: "Strona nie znaleziona"
-        name: "page-not-found-page"
+        name: "notFoundPage"
         file: "content/not-found/not-found.md"
         fields:
-          - { name: "title", label: "Tytuł", widget: "string" }
-          - {
-              name: "content",
-              label: "Treść sekcji 'Strina nie znaleziona'",
-              widget: "markdown",
-            }
-          - { label: "Główne zdjęcie", name: "mainImageUrl", widget: "image" }
+          - { label: "Tytuł", name: "title", widget: "string" }
+          - { label: "Treść", name: "content", widget: "markdown" }
+          - { label: "Zdjęcie główne", name: "mainImageUrl", widget: "image" }
