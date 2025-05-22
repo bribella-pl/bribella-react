@@ -110,7 +110,7 @@ collections:
     label: "Kocury"
     files:
       - label: "Kocury"
-        name: "studs"
+        name: "studs-page"
         file: "content/cats/studs.md"
         fields:
           - { name: "title", label: "Tytuł", widget: "string" }
@@ -142,7 +142,7 @@ collections:
     label: "Kotki"
     files:
       - label: "Kotki"
-        name: "queens"
+        name: "queens-page"
         file: "content/cats/queens.md"
         fields:
           - { name: "title", label: "Tytuł", widget: "string" }
@@ -174,7 +174,7 @@ collections:
     label: "Kocięta"
     files:
       - label: "Kocięta"
-        name: "kittens"
+        name: "kittens-page"
         file: "content/cats/kittens.md"
         fields:
           - { name: "title", label: "Tytuł", widget: "string" }
@@ -206,7 +206,7 @@ collections:
     label: "O nas"
     files:
       - label: "O nas"
-        name: "about"
+        name: "about-page"
         file: "content/about/about.md"
         fields:
           - { name: "title", label: "Tytuł", widget: "string" }
@@ -221,7 +221,7 @@ collections:
     label: "Kontakt"
     files:
       - label: "Kontakt"
-        name: "contact"
+        name: "contact-page"
         file: "content/contact/contact.md"
         fields:
           - { name: "title", label: "Tytuł", widget: "string" }
@@ -236,7 +236,7 @@ collections:
     label: "Zanim kupisz"
     files:
       - label: "Zanim kupisz"
-        name: "before-you-buy"
+        name: "before-you-buy-page"
         file: "content/before-you-buy/before-you-buy.md"
         fields:
           - { name: "title", label: "Tytuł", widget: "string" }
@@ -251,7 +251,7 @@ collections:
     label: "Strona nie znaleziona"
     files:
       - label: "Strona nie znaleziona"
-        name: "page-not-found"
+        name: "page-not-found-page"
         file: "content/not-found/not-found.md"
         fields:
           - { name: "title", label: "Tytuł", widget: "string" }
