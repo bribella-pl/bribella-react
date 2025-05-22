@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: bribella-pl/bribella-react
   branch: main
+  base_url: https://auth-provider-bribella-pls-projects.vercel.app/
+  auth_endpoint: /api/oauth
 
 media_folder: public/images
 public_folder: /images
