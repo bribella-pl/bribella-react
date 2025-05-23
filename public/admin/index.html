@@ -6,24 +6,8 @@
     <title>Panel Administracyjny Bribella</title>
     <script>window.CMS_MANUAL_INIT = true;</script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
 </head>
 
-<body>
-    <script>
-        fetch("config.yml")
-            .then((res) => {
-                if (!res.ok) throw new Error("Nie udało się pobrać config.yml");
-                return res.text();
-            })
-            .then((yamlText) => {
-                const config = jsyaml.load(yamlText);
-                CMS.init({ config });
-            })
-            .catch((err) => {
-                console.error("Błąd ładowania configu CMS:", err);
-            });
-    </script>
-</body>
+<body></body>
 
 </html>
