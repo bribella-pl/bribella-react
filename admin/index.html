@@ -20,9 +20,10 @@
             }
         };
 
+        console.log(CMS);
         console.log(cfg);
 
-        window.initCMS({ config: cfg });
+        CMS.init({ config: cfg });
 
         window.addEventListener("message", (e) => {
             if (
