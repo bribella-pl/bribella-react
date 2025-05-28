@@ -4,10 +4,33 @@
 <head>
     <meta charset="UTF-8" />
     <title>Panel Administracyjny Bribella</title>
+    <script>window.CMS_MANUAL_INIT = true;</script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="config.js"></script>
 </head>
 
 <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+        window.initCMS({ config });
+        window.addEventListener("message", (e) => {
+            if (
+                e.data?.type === "authorization_response" &&
+                e.data?.data?.token
+            ) {
+                const token = e.data.data.token;
+                console.log("Otrzymany token:", token);
+
+                const securedConfig = {
+                    ...config,
+                    backend: {
+                        ...config.backend,
+                        auth_token: token
+                    }
+                };
+                window.initCMS({ config: securedConfig });
+            }
+        });
+    </script>
 </body>
 
 </html>
