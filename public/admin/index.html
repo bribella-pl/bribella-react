@@ -11,26 +11,25 @@
 
 <body>
     <script>
-        console.log(config);
+        const savedToken = sessionStorage.getItem("decapCmsToken");
+        const cfg = {
+            ...config,
+            backend: {
+                ...config.backend,
+                ...(savedToken && { auth_token: savedToken })
+            }
+        };
 
-        window.initCMS({ config });
+        window.initCMS({ config: cfg });
+
         window.addEventListener("message", (e) => {
             if (
                 e.data?.type === "authorization_response" &&
                 e.data?.data?.token
             ) {
                 const token = e.data.data.token;
-                console.log("Otrzymany token:", token);
-
-                const securedConfig = {
-                    ...config,
-                    backend: {
-                        ...config.backend,
-                        auth_token: token
-                    }
-                };
-                console.log(securedConfig);
-                window.initCMS({ config: securedConfig });
+                sessionStorage.setItem("decapCmsToken", token);
+                window.location.reload();
             }
         });
     </script>
