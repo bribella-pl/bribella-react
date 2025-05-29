@@ -27,7 +27,6 @@
         console.log(cfg);
 
         CMS.init({ config: cfg });
-        console.log("🔍 CMS store state:", CMS.store.getState());
 
         window.addEventListener("message", (e) => {
             if (
@@ -37,7 +36,6 @@
                 const token = e.data.data.token;
                 sessionStorage.setItem("decapCmsToken", token);
                 window.location.reload();
-                console.log("🔍 Po reload, CMS store state:", CMS.store.getState());
             }
         });
     </script>
