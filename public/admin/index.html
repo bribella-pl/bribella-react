@@ -19,13 +19,11 @@
                 ...config.backend,
                 auth_scope: "repo",
                 open_authoring: false,
-                ...(savedToken && { auth_token: savedToken })
+                ...(savedToken && { token: savedToken })
             }
         };
 
-        console.log(CMS);
         console.log(cfg);
-
         CMS.init({ config: cfg });
 
         window.addEventListener("message", (e) => {
