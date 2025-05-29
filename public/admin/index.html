@@ -11,33 +11,19 @@
 
 <body>
     <script>
-        const savedToken = sessionStorage.getItem("decapCmsToken");
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get("token");
         const cfg = {
             ...config,
-            debug: true,
             backend: {
                 ...config.backend,
-                auth_scope: "repo",
-                open_authoring: false,
-                ...(savedToken && { auth_token: savedToken })
+                ...(token ? { auth_token: token } : {}),
             }
         };
-
         console.log(CMS);
         console.log(cfg);
-
+        console.log("🚀 Init Decap CMS (token? ", !!token, ")");
         CMS.init({ config: cfg });
-
-        window.addEventListener("message", (e) => {
-            if (
-                e.data?.type === "authorization_response" &&
-                e.data?.data?.token
-            ) {
-                const token = e.data.data.token;
-                sessionStorage.setItem("decapCmsToken", token);
-                window.location.reload();
-            }
-        });
     </script>
 </body>
 
