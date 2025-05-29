@@ -19,7 +19,7 @@
                 ...config.backend,
                 auth_scope: "repo",
                 open_authoring: false,
-                ...(savedToken && { token: savedToken })
+                ...(savedToken && { token: savedToken, base_url: "https://bribella-pl.github.io/bribella-react" })
             }
         };
 
